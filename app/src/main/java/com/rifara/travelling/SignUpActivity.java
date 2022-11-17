@@ -1,22 +1,26 @@
 package com.rifara.travelling;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
@@ -43,7 +47,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         createAccountBtn.setOnClickListener(this);
         loginBtn.setOnClickListener(this);
 
-
     }
 
     @Override
@@ -66,11 +69,41 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        createAccountInFirebase(name, email, password);
+        createAccountInFirebaseAuth(email, password); // Authentication
+        createAccountRealtimeDatabase(name, email, password); // Realtime Database
 
     }
 
-    private void createAccountInFirebase(String name, String email, String password) {
+    private void createAccountRealtimeDatabase(String name, String email, String password) {
+
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = database.getReferenceFromUrl("https://travelling-1b36f-default-rtdb.firebaseio.com/");
+
+        databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.hasChild(name)) {
+                    Utility.showToast(SignUpActivity.this, "Email Sudah Terdaftar!");
+                } else {
+                    // databaseReference.setValue(User.class);
+                    databaseReference.child("users").child(name).child("name").setValue(name);
+                    databaseReference.child("users").child(name).child("email").setValue(email);
+                    databaseReference.child("users").child(name).child("password").setValue(password);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Utility.showToast(SignUpActivity.this, "Gagal");
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+    }
+
+    private void createAccountInFirebaseAuth(String email, String password) {
 
         changeInProgress(true);
 
@@ -79,14 +112,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             changeInProgress(false);
             if (task.isSuccessful()) {
                 // Apabila Berhasil
-                Toast.makeText(SignUpActivity.this, "Sukses, Cek email untuk verifikasi", Toast.LENGTH_SHORT).show();
+                Utility.showToast(SignUpActivity.this, "Sukses, Cek email untuk verifikasi");
                 Objects.requireNonNull(firebaseAuth.getCurrentUser()).sendEmailVerification();
                 firebaseAuth.signOut();
                 finish();
 
             } else {
                 // Apabila Gagal
-                Toast.makeText(SignUpActivity.this, Objects.requireNonNull(task.getException()).getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Utility.showToast(SignUpActivity.this, Objects.requireNonNull(task.getException()).getLocalizedMessage());
             }
         });
 
@@ -95,7 +128,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     void changeInProgress(boolean inProgress) {
         if (inProgress) {
             progressBar.setVisibility(View.VISIBLE);
-            createAccountBtn.setVisibility(View.GONE);
+            createAccountBtn.setVisibility(View.VISIBLE);
         } else {
             progressBar.setVisibility(View.GONE);
             createAccountBtn.setVisibility(View.VISIBLE);

@@ -43,7 +43,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/et_Username_staff"
+            android:id="@+id/et_email_sign_in"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="20dp"
@@ -56,7 +56,7 @@
             tools:ignore="RtlSymmetry" />
 
         <EditText
-            android:id="@+id/et_Password_staff"
+            android:id="@+id/et_Password_sign_up"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@drawable/input_text"
@@ -67,7 +67,7 @@
             tools:ignore="RtlSymmetry" />
 
         <LinearLayout
-            android:id="@+id/linear_button_login"
+            android:id="@+id/linear_button_signin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -85,7 +85,7 @@
                 android:textStyle="bold" />
 
             <ProgressBar
-                android:id="@+id/loadingLogin"
+                android:id="@+id/loading"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginLeft="5dp"
@@ -93,44 +93,6 @@
                 android:indeterminateTint="@android:color/white"
                 android:visibility="gone" />
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_button_signup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/outlined_button"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingVertical="15dp">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Daftar"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <ProgressBar
-                android:id="@+id/loadingSignUp"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="5dp"
-                android:indeterminate="true"
-                android:indeterminateTint="@android:color/white"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Atau"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
 
         <LinearLayout
             android:id="@+id/linear_button_login_google"
@@ -167,6 +129,20 @@
                 android:indeterminateTint="@android:color/white"
                 android:visibility="gone" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:text="Buat Akun Baru"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+
 
     </LinearLayout>
 

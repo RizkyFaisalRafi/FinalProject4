@@ -6,6 +6,9 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
@@ -14,7 +17,12 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         new Handler().postDelayed(() -> {
-            startActivity(new Intent(SplashScreenActivity.this, SignUpActivity.class));
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            if (currentUser == null) {
+                startActivity(new Intent(SplashScreenActivity.this, SignInActivity.class));
+            } else {
+                startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+            }
             finish();
         },3000);
 
