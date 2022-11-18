@@ -42,6 +42,38 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconTint="@color/teal_700"
+            app:boxBackgroundMode="outline"
+            app:boxBackgroundColor="@color/white"
+
+            app:counterEnabled="true"
+            app:counterMaxLength="25"
+
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/teal_700"
+
+            android:textColorHint="#9A9595"
+
+            app:helperTextEnabled="true"
+            app:helperText="Enter Password"
+            app:helperTextTextColor="@color/blueprimary"
+
+            android:hint="Password"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:typeface="normal"
+                android:layout_height="match_parent"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <EditText
             android:id="@+id/et_name"
             android:layout_width="match_parent"
