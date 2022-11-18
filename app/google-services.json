@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "233983266986",
+    "project_id": "travelling-1b36f",
+    "storage_bucket": "travelling-1b36f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233983266986:android:34878f16a2b677c491c0d3",
+        "android_client_info": {
+          "package_name": "com.rifara.travelling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233983266986-8k8ttcmgj1t29grfj10n767a30uev4j6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFxWwMtiEJ3jzWXfXwcIXB3pUtXD3GHRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233983266986-8k8ttcmgj1t29grfj10n767a30uev4j6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
