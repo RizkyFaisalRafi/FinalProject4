@@ -11,6 +11,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
+    int code = 1000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +22,8 @@ public class SplashScreenActivity extends AppCompatActivity {
             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
             if (currentUser == null) {
                 startActivity(new Intent(SplashScreenActivity.this, SignInActivity.class));
-            } else {
+            }
+            else {
                 startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
             }
             finish();
