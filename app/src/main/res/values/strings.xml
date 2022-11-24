@@ -2,4 +2,50 @@
     <string name="app_name">Travelling</string>
     <string name="splashscreenimg">splashScreenImg</string>
     <string name="logo_bg">logo_bg</string>
+    <string name="title_activity_home">ActivityHome</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_bus">Search Bus</string>
+    <string name="select_date">Select Date</string>
+    <string name="where_will_you_ngo_today">WHERE WILL YOU\nGO TODAY?</string>
+    <string name="welcome">Welcome ....</string>
+    <string name="to">To</string>
+    <string name="pessengers">Pessengers</string>
+    <string name="_0">0</string>
+    <string name="date">Date</string>
+    <string name="executive">Executive</string>
+    <string name="premium">Premium</string>
+    <string name="ekonomi">Ekonomi</string>
+    <string name="from">From</string>
+    <string name="price">Price</string>
+    <string name="rp_50_000">Rp. 50.000</string>
+    <string name="probolinggo">Probolinggo</string>
+    <string name="arrival">Arrival</string>
+    <string name="book_now">Book Now</string>
+    <string name="departure">Departure</string>
+    <string name="_10_11_2022">10/11/2022</string>
+    <string name="name_bus">Name Bus</string>
+
+    <!-- array spiner -->
+    <string-array name="Kota">
+        <item>-- Select Departure --</item>
+        <item>Probolinggo</item>
+        <item>Pasuruan</item>
+        <item>Surabaya</item>
+        <item>Malang</item>
+        <item>Gresik</item>
+
+    </string-array>
+    <string-array name="Tujuan">
+        <item>-- Select Arrival --</item>
+        <item>Probolinggo</item>
+        <item>Pasuruan</item>
+        <item>Surabaya</item>
+        <item>Malang</item>
+        <item>Gresik</item>
+
+    </string-array>
 </resources>

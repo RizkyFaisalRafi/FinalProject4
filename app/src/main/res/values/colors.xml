@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="blueprimary">#6A98DD</color>
+
+<!--    ui-->
+    <color name="bg">#E3E7EC</color>
+    <color name="blue">#7492BE</color>
+    <color name="small_text">#747474</color>
 </resources>

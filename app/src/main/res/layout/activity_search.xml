@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SearchActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/blue">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/abstrak"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/fromSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Probolinggo"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/nunito_semi_bold"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="80dp"
+            android:layout_toStartOf="@+id/toSearch"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/fromSearch"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:background="#FDFBFB"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_marginTop="77dp"
+            android:layout_toEndOf="@+id/view"
+            android:layout_marginStart="-21dp"
+            android:background="#FDFBFB"
+            app:shapeAppearanceOverlay="@style/circleTicketDoted" />
+
+        <TextView
+            android:id="@+id/toSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="20dp"
+            android:text="Surabaya"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/jarak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="170dp"
+            android:layout_marginBottom="101dp"
+            android:text="12 km"
+            android:fontFamily="@font/nunito_regular"
+            android:textColor="#FDFBFB"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/date_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="38dp"
+            android:layout_marginStart="100dp"
+            android:gravity="center"
+            android:text="10/11/2022"
+            android:textSize="20sp"
+            android:fontFamily="@font/nunito_regular"
+            android:textColor="#FDFBFB" />
+
+        <TextView
+            android:id="@+id/pessengers_Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="38dp"
+            android:layout_marginStart="250dp"
+            android:gravity="center"
+            android:text="2 Pessengers"
+            android:textSize="20sp"
+            android:fontFamily="@font/nunito_regular"
+            android:textColor="#FDFBFB" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E3E7EC">
+
+        <ProgressBar
+            android:id="@+id/simpleProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="190dp"
+            android:layout_marginBottom="297dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:background="#E3E7EC"/>
+
+        <TextView
+            android:id="@+id/busNotFound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="131dp"
+            android:layout_marginBottom="311dp"
+            android:text="Bus not found"
+            tools:visibility="visible"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E3E7EC"
+            tools:listitem="@layout/itembus"/>
+    </RelativeLayout>
+
+
+</LinearLayout>
