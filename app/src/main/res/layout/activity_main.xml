@@ -20,16 +20,13 @@
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-<<<<<<< Updated upstream
         android:text="Hello Dunia!"
-=======
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="@drawable/bg_bottomnav"
         android:layout_marginLeft="72dp"
         android:layout_marginRight="72dp"
         android:layout_marginBottom="20dp"
->>>>>>> Stashed changes
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
