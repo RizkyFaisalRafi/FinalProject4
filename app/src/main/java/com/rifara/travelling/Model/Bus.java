@@ -1,16 +1,33 @@
 package com.rifara.travelling.Model;
 
 public class Bus {
-    private String namaBus, pickUp, dropOff, harga, type, waktu;
+    private String namaBus, pickUp, dropOff, price, type, time, time_start, time_end;
 
-
-    public Bus(String namaBus, String pickUp, String dropOff, String harga, String type, String waktu) {
+    public Bus(String namaBus, String pickUp, String dropOff, String price, String type, String time, String time_start, String time_end) {
         this.namaBus = namaBus;
         this.pickUp = pickUp;
         this.dropOff = dropOff;
-        this.harga = harga;
+        this.price = price;
         this.type = type;
-        this.waktu = waktu;
+        this.time = time;
+        this.time_start = time_start;
+        this.time_end = time_end;
+    }
+
+    public String getTime_start() {
+        return time_start;
+    }
+
+    public void setTime_start(String time_start) {
+        this.time_start = time_start;
+    }
+
+    public String getTime_end() {
+        return time_end;
+    }
+
+    public void setTime_end(String time_end) {
+        this.time_end = time_end;
     }
 
     public Bus(){
@@ -41,12 +58,20 @@ public class Bus {
         this.dropOff = dropOff;
     }
 
-    public String getHarga() {
-        return harga;
+    public String getPrice() {
+        return price;
     }
 
-    public void setHarga(String harga) {
-        this.harga = harga;
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getType() {
@@ -57,11 +82,4 @@ public class Bus {
         this.type = type;
     }
 
-    public String getWaktu() {
-        return waktu;
-    }
-
-    public void setWaktu(String waktu) {
-        this.waktu = waktu;
-    }
 }

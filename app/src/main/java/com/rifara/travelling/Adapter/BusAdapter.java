@@ -20,6 +20,11 @@ import java.util.List;
 public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> {
     private final Context context;
     private final List<Bus> list;
+    private OnItemClickCallback onItemClickCallback;
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback;
+    }
 
     public BusAdapter(Context context, List<Bus> list) {
         this.context = context;
@@ -35,16 +40,25 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull BusAdapter.ListViewHolder holder, int position) {
+        Bus bus = list.get(position);
         holder.namaBus.setText(list.get(position).getNamaBus());
         holder.naik.setText(list.get(position).getPickUp());
         holder.turun.setText(list.get(position).getDropOff());
         holder.type.setText(list.get(position).getType());
-        holder.harga.setText(list.get(position).getHarga());
-        holder.waktu.setText(list.get(position).getWaktu());
+        holder.harga.setText(list.get(position).getPrice());
+        holder.waktu.setText(list.get(position).getTime());
+        holder.start.setText(list.get(position).getTime_start());
+        holder.end.setText(list.get(position).getTime_end());
 
-        holder.bookNow.setOnClickListener(view -> {
-            Intent intent = new Intent(context.getApplicationContext(), DetailPesananActivity.class);
-            context.startActivity(intent);
+//        holder.bookNow.setOnClickListener(view -> {
+//            Intent intent = new Intent(context.getApplicationContext(), DetailPesananActivity.class);
+//            context.startActivity(intent);
+//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onItemClickCallback.onItemClicked(list.get(holder.getAdapterPosition()));
+            }
         });
     }
 
@@ -54,7 +68,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
     }
 
     public class ListViewHolder extends RecyclerView.ViewHolder {
-        TextView namaBus, harga, naik, turun, waktu, type;
+        TextView namaBus, harga, naik, turun, waktu, type, start, end;
         Button bookNow;
 
         public ListViewHolder(@NonNull View itemView) {
@@ -66,7 +80,11 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
             turun = itemView.findViewById(R.id.tiba);
             waktu = itemView.findViewById(R.id.time);
             type = itemView.findViewById(R.id.typeBus);
-            bookNow = itemView.findViewById(R.id.btnBookNow);
+            start = itemView.findViewById(R.id.time_start);
+            end = itemView.findViewById(R.id.time_end);
         }
+    }
+    public interface OnItemClickCallback {
+        void onItemClicked(Bus data);
     }
 }
