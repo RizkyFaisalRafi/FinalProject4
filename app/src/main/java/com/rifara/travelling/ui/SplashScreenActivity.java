@@ -1,4 +1,4 @@
-package com.rifara.travelling;
+package com.rifara.travelling.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.rifara.travelling.MainActivity;
+import com.rifara.travelling.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

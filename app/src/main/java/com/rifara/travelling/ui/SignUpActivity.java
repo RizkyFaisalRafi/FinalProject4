@@ -1,4 +1,4 @@
-package com.rifara.travelling;
+package com.rifara.travelling.ui;
 
 import static android.content.ContentValues.TAG;
 
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -22,6 +21,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rifara.travelling.R;
+import com.rifara.travelling.Utility;
 
 import java.util.Objects;
 
