@@ -12,7 +12,7 @@ import com.rifara.travelling.ui.HistoryFragment;
 import com.rifara.travelling.ui.HomeFragment;
 import com.rifara.travelling.ui.ProfileFragment;
 
-public class HomeActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNav;
     FrameLayout frame;

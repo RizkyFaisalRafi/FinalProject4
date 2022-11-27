@@ -8,9 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.rifara.travelling.HomeActivity;
+import com.rifara.travelling.MainActivity;
 import com.rifara.travelling.R;
-import com.rifara.travelling.ui.SignInActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -24,9 +23,9 @@ public class SplashScreenActivity extends AppCompatActivity {
             if (currentUser != null) {
                 startActivity(new Intent(SplashScreenActivity.this, SignInActivity.class));
             } else {
-                startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class));
+                startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
             }
-//            startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class));
+//            startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
             finish();
         },3000);
 
