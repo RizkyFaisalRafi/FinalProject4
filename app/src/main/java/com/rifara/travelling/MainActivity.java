@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.rifara.travelling.ui.HistoryFragment;
 import com.rifara.travelling.ui.HomeFragment;
+import com.rifara.travelling.ui.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.history:
                     fragment = new HistoryFragment();
                     break;
+                case R.id.profil:
+                    fragment = new ProfileFragment();
             }
             LoadFragment(fragment);
             return true;
