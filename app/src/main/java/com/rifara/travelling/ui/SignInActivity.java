@@ -22,7 +22,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.rifara.travelling.MainActivity;
+import com.rifara.travelling.HomeActivity;
+//import com.rifara.travelling.MainActivity;
 import com.rifara.travelling.R;
 import com.rifara.travelling.Utility;
 
@@ -90,7 +91,7 @@ public class SignInActivity extends AppCompatActivity {
 
     private void navigateToSecondActivity() {
         finish();
-        startActivity(new Intent(SignInActivity.this, MainActivity.class));
+        startActivity(new Intent(SignInActivity.this, HomeActivity.class));
     }
 
     private void loginUser() {
