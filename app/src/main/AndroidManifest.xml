@@ -15,14 +15,14 @@
         android:theme="@style/Theme.Travelling"
         tools:targetApi="31">
         <activity
-            android:name=".DetailPesananActivity"
+            android:name=".ui.DetailPesananActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SearchActivity"
+            android:name=".ui.SearchActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

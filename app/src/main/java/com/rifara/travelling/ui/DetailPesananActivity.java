@@ -1,8 +1,10 @@
-package com.rifara.travelling;
+package com.rifara.travelling.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.rifara.travelling.R;
 
 public class DetailPesananActivity extends AppCompatActivity {
 
