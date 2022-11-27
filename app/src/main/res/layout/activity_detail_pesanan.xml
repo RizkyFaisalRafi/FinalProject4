@@ -10,34 +10,34 @@
         android:id="@+id/toolbar_detail_bus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/blue"
-        >
+        android:background="@color/blue">
+
         <ImageView
             android:id="@+id/img_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/back"
-            android:contentDescription="back" />
+            android:contentDescription="back"
+            android:src="@drawable/back" />
 
         <TextView
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Book a trip"
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/nunito_bold"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            />
+            android:fontFamily="@font/nunito_bold"
+            android:text="Book a trip"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </androidx.appcompat.widget.Toolbar>
 
-   <ScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       android:layout_alignParentTop="true"
-       android:layout_marginTop="55dp">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="700dp"
+            android:layout_height="800dp"
             android:background="@color/bg">
 
             <com.makeramen.roundedimageview.RoundedImageView
@@ -97,10 +97,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="263dp"
                 android:layout_marginEnd="9dp"
-                android:textColor="@color/small_text"
-                android:text="8.7/5" />
+                android:text="8.7/5"
+                android:textColor="@color/small_text" />
 
-<!-- Detail perjalanan-->
+            <!-- Detail perjalanan-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="125dp"
@@ -108,8 +108,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="306dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/bg_card"
-                android:orientation="vertical">
+                android:background="@drawable/bg_card">
 
                 <TextView
                     android:id="@+id/from_detail"
@@ -157,28 +156,26 @@
                     android:id="@+id/long_time_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:gravity="center"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginBottom="45dp"
                     android:fontFamily="@font/nunito_bold"
+                    android:gravity="center"
                     android:text="-- 2 hours --"
-                    android:textColor="@color/small_text"
-                    />
+                    android:textColor="@color/small_text" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignParentStart="true"
-                    android:gravity="center"
                     android:layout_marginBottom="95dp"
                     android:fontFamily="@font/nunito_bold"
+                    android:gravity="center"
                     android:text="-- to --"
-                    android:textColor="@color/small_text"
-                    />
+                    android:textColor="@color/small_text" />
 
                 <TextView
                     android:id="@+id/to_detail"
@@ -214,8 +211,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginLeft="11dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="45dp"
                     android:fontFamily="@font/nunito_regular"
                     android:text="19.00"
@@ -231,22 +228,22 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="90dp"
                     android:layout_marginBottom="10dp"
-                    android:textColor="@color/small_text"
                     android:fontFamily="@font/nunito_regular"
-                    android:text="Friday, 10 Des 2020" />
+                    android:text="Friday, 10 Des 2020"
+                    android:textColor="@color/small_text" />
 
                 <TextView
                     android:id="@+id/pessengers_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginEnd="10dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="90dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    android:textColor="@color/small_text"
                     android:fontFamily="@font/nunito_regular"
-                    android:text="2 pessengers" />
+                    android:text="2 pessengers"
+                    android:textColor="@color/small_text" />
 
             </RelativeLayout>
 
@@ -257,10 +254,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="440dp"
-                android:textSize="20sp"
-                android:textColor="@color/black"
                 android:fontFamily="@font/nunito_bold"
-                android:text="Available seat" />
+                android:text="Available seat"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_availableSeat"
@@ -270,10 +267,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="470dp"
-                android:textSize="15sp"
-                android:textColor="@color/small_text"
                 android:fontFamily="@font/nunito_regular"
-                android:text="24 Seat are available" />
+                android:text="24 Seat are available"
+                android:textColor="@color/small_text"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -282,10 +279,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="500dp"
-                android:textSize="20sp"
-                android:textColor="@color/black"
                 android:fontFamily="@font/nunito_bold"
-                android:text="Class" />
+                android:text="Class"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_class"
@@ -295,10 +292,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="530dp"
-                android:textSize="15sp"
-                android:textColor="@color/small_text"
                 android:fontFamily="@font/nunito_regular"
-                android:text="Economy" />
+                android:text="Economy"
+                android:textColor="@color/small_text"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -307,19 +304,19 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="560dp"
-                android:textSize="20sp"
-                android:textColor="@color/black"
                 android:fontFamily="@font/nunito_bold"
-                android:text="Fasility" />
+                android:text="Fasility"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/toilet"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="590dp"
-                android:layout_marginStart="20dp"/>
+                android:src="@drawable/toilet" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -328,19 +325,19 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="590dp"
-                android:textSize="15sp"
-                android:textColor="@color/small_text"
                 android:fontFamily="@font/nunito_regular"
-                android:text="toilet" />
+                android:text="toilet"
+                android:textColor="@color/small_text"
+                android:textSize="15sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ac"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="100dp"
                 android:layout_marginTop="590dp"
-                android:layout_marginStart="100dp"/>
+                android:src="@drawable/ac" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -349,28 +346,73 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="590dp"
-                android:textSize="15sp"
-                android:textColor="@color/small_text"
                 android:fontFamily="@font/nunito_regular"
-                android:text="AC" />
+                android:text="AC"
+                android:textColor="@color/small_text"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="630dp"
+                android:background="@drawable/card">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Choose seats"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_seat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/small_text"
+                    android:text="0"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bt_choose_seat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:text="Choose" />
+
+
+            </RelativeLayout>
         </RelativeLayout>
+
     </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:background="@color/bg"
-        android:padding="10dp" >
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/totalPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="27dp"
             android:layout_alignParentBottom="true"
+            android:layout_marginLeft="27dp"
+            android:layout_weight="1"
             android:fontFamily="@font/nunito_semi_bold"
             android:text="100.000"
             android:textColor="@color/black"

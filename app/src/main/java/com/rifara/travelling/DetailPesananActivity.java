@@ -30,7 +30,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
     private ActivityDetailPesananBinding binding;
     int price, totalprice, pessengers;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String nameBus, pessenger, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance;
+    String nameBus, pessenger, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance, seats;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -53,6 +53,9 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         type = detail.getString("type");
         pessenger = detail.getString("pessenger");
 
+        seats = getIntent().getStringExtra("total_seat"); //gagal get data seat
+        binding.tvSeat.setText(seats);
+
         binding.nameBusDetail.setText(nameBus);
         binding.fromDetail.setText(from);
         binding.toDetail.setText(to);
@@ -73,8 +76,19 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         binding.pessengersDetail.setText(pessenger + " Pessengers");
 
         binding.bookNow.setOnClickListener(this);
+        binding.btChooseSeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetailPesananActivity.this, SeatActivity.class);
+                intent.putExtra("total_pessenger", pessenger);
+                startActivity(intent);
+            }
+        });
+        binding.imgBack.setOnClickListener(view1 -> {
+            startActivity(new Intent(DetailPesananActivity.this, SearchActivity.class));
+        });
     }
-//String nameBus, pessengerr, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance, pricee, totalPrice;
+
     @Override
     public void onClick(View view) {
         Map<String, Object> detail = new HashMap<>();
@@ -101,6 +115,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                         Toast.makeText(DetailPesananActivity.this, "Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

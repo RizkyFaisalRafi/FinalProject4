@@ -4,8 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.icu.text.SimpleDateFormat;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +11,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.arch.core.executor.TaskExecutor;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.rifara.travelling.NotificationActivity;
 import com.rifara.travelling.R;
 import com.rifara.travelling.SearchActivity;
 import com.rifara.travelling.databinding.FragmentHomeBinding;
@@ -55,6 +52,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         db = FirebaseFirestore.getInstance();
         binding.btSearchBus.setOnClickListener(this);
+        binding.notif.setOnClickListener(this);
 
 // Spinner from
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Kota, android.R.layout.simple_spinner_item);
@@ -123,13 +121,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 intent.putExtra("pessengers", binding.pessengers.getText().toString());
                 intent.putExtra("date", binding.date.getText().toString());
                 intent.putExtra("jarak", String.valueOf(jarak));
-//                intent.putExtra("price", price);
-//                intent.putExtra("nameBus", nameBus);
-//                intent.putExtra("longTime", longTime);
-//                intent.putExtra("imgBus", linkBus);
                 startActivity(intent);
                 Toast.makeText(getActivity(), "berhasil"+binding.date.getText().toString() +binding.pessengers.getText().toString() +jarak, Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.notif:
+                startActivity(new Intent(getActivity(), NotificationActivity.class));
         }
     }
 
@@ -144,65 +140,38 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Pasuruan")
                 || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             Toast.makeText(getActivity(), "sukses", Toast.LENGTH_SHORT).show();
-            price = 25000;
-            longTime = 2;
-            nameBus = "AKAS";
             jarak = 87.8;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
-            price = 50000;
-            longTime = 4;
-            nameBus = "AKAS";
             jarak = 149;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Malang")
                 || binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
-            price = 40000;
-            longTime = 3;
-            nameBus = "AKAS";
             jarak = 124;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Gresik")
                 || binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
-            price = 70000;
-            longTime = 6;
-            nameBus = "AKAS";
             jarak = 160;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Pasuruan")) {
-            price = 20000;
-            longTime = 1;
-            nameBus = "AKAS";
             jarak = 66.90;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Malang")) {
-            price = 40000;
-            longTime = 2;
-            nameBus = "AKAS";
             jarak = 125;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Gresik")) {
-            price = 15000;
-            longTime = 1;
-            nameBus = "AKAS";
             jarak = 18;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Pasuruan")
                 || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Malang")) {
-            price = 30000;
-            longTime = 1;
-            nameBus = "AKAS";
             jarak = 55;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Pasuruan")
                 || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Gresik")) {
-            price = 50000;
-            longTime = 3;
-            nameBus = "AKAS";
             jarak = 78;
             linkBus = "";
         }

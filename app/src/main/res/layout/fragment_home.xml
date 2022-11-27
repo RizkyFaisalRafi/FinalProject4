@@ -85,7 +85,7 @@
 
     </LinearLayout>
 
-<!--    crad To-->
+    <!--    crad To-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="62dp"
@@ -122,20 +122,18 @@
 
     </LinearLayout>
 
-<!--    Card Ketiga-->
+    <!--    Card Ketiga-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginLeft="27dp"
         android:layout_marginTop="359dp"
         android:layout_marginRight="27dp"
-        android:layout_marginBottom="100dp"
         android:background="@drawable/bg_card"
         android:orientation="vertical">
 
-<!--        Card Pessengers-->
+        <!--        Card Pessengers-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -175,11 +173,12 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="17dp"
+                android:layout_marginRight="100dp"
                 android:background="@drawable/plus"/>
 
         </LinearLayout>
 
-<!--        Card Date-->
+        <!--        Card Date-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -211,41 +210,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="class :"
-            android:layout_marginStart="11dp"
-            android:textColor="@color/small_text"/>
-
-<!--        Class Bus-->
-        <RadioGroup
-            android:id="@+id/rgClass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/rbExcecutive"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/executive"
-                />
-            <RadioButton
-                android:id="@+id/rbPremium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/premium"
-                />
-            <RadioButton
-                android:id="@+id/RbEkonomi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ekonomi"
-                />
-        </RadioGroup>
-
-<!--        Button-->
+        <!--        Button-->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btSearchBus"
             android:layout_width="match_parent"

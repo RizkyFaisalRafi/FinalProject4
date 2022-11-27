@@ -67,6 +67,9 @@ public class SearchActivity extends AppCompatActivity {
                 showSelectedBus(data);
             }
         });
+        binding.back.setOnClickListener(view1 -> {
+            startActivity(new Intent(SearchActivity.this, MainActivity.class));
+        });
     }
 
 
