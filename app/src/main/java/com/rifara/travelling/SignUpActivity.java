@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,7 +27,7 @@ import java.util.Objects;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText nameEt, emailEt, passEt, confirmPassEt;
+    TextInputEditText nameEt, emailEt, passEt, confirmPassEt;
     LinearLayout createAccountBtn;
     ProgressBar progressBar;
     TextView loginBtn;

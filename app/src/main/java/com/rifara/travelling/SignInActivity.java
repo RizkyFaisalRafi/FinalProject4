@@ -20,12 +20,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignInActivity extends AppCompatActivity {
 
-    EditText emailEt, passEt;
+    TextInputEditText emailEt, passEt;
     LinearLayout signInBtn;
     ProgressBar progressBar;
     TextView tvCreateAccount;
@@ -40,7 +41,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
         emailEt = findViewById(R.id.et_email_sign_in);
-        passEt = findViewById(R.id.et_Password_sign_up);
+        passEt = findViewById(R.id.et_password_sign_in);
         signInBtn = findViewById(R.id.linear_button_signin);
         progressBar = findViewById(R.id.loading);
         tvCreateAccount = findViewById(R.id.tv_create_account);
@@ -107,7 +108,7 @@ public class SignInActivity extends AppCompatActivity {
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                changeInProgress(false);
+                changeInProgress(true);
                 if (task.isSuccessful()) {
                     // Sign In Succes
                     if (firebaseAuth.getCurrentUser().isEmailVerified()) {

@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    int code = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
