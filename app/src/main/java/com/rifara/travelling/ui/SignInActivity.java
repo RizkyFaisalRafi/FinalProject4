@@ -1,4 +1,4 @@
-package com.rifara.travelling;
+package com.rifara.travelling.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.rifara.travelling.MainActivity;
+import com.rifara.travelling.R;
+import com.rifara.travelling.Utility;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -31,7 +34,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
         emailEt = findViewById(R.id.et_email_sign_in);
-        passEt = findViewById(R.id.et_Password_sign_up);
+        passEt = findViewById(R.id.et_password_sign_in);
         signInBtn = findViewById(R.id.linear_button_signin);
         progressBar = findViewById(R.id.loading);
         tvCreateAccount = findViewById(R.id.tv_create_account);

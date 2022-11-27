@@ -1,4 +1,4 @@
-package com.rifara.travelling;
+package com.rifara.travelling.ui;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.rifara.travelling.Adapter.BusAdapter;
 import com.rifara.travelling.Model.Bus;
+import com.rifara.travelling.R;
 import com.rifara.travelling.databinding.ActivitySearchBinding;
 
 import java.util.ArrayList;

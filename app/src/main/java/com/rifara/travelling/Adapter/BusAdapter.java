@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rifara.travelling.DetailPesananActivity;
+import com.rifara.travelling.ui.DetailPesananActivity;
 import com.rifara.travelling.Model.Bus;
 import com.rifara.travelling.R;
 
