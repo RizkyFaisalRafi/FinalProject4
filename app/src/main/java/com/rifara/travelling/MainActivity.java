@@ -10,11 +10,7 @@ import android.widget.FrameLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.rifara.travelling.ui.HistoryFragment;
 import com.rifara.travelling.ui.HomeFragment;
-<<<<<<< Updated upstream
 import com.rifara.travelling.ui.ProfileFragment;
-=======
-import com.rifara.travelling.ui.ProfilFragment;
->>>>>>> Stashed changes
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,12 +36,8 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new HistoryFragment();
                     break;
                 case R.id.profil:
-<<<<<<< Updated upstream
                     fragment = new ProfileFragment();
-=======
-                    fragment = new ProfilFragment();
                     break;
->>>>>>> Stashed changes
             }
             LoadFragment(fragment);
             return true;

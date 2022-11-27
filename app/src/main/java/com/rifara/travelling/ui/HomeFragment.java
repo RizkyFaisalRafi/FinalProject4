@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     DatePickerDialog.OnDateSetListener setListener;
     RadioButton rb;
     String nameBus, linkBus = "";
-    int price,longTime;
+    int price, longTime;
     double jarak;
 
 
@@ -54,20 +54,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding.btSearchBus.setOnClickListener(this);
         binding.notif.setOnClickListener(this);
 
-// Spinner from
+        // Spinner from
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Kota, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.from.setAdapter(adapter);
-//Spinner To
+
+        // Spinner To
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getActivity(), R.array.Tujuan, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.to.setAdapter(adapter1);
 
-//count penumpang
+        //count penumpang
         binding.plus.setOnClickListener(this);
         binding.minus.setOnClickListener(this);
 
-// select Date
+        // select Date
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
@@ -77,7 +78,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
 
                 datePickerDialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog_MinWidth
-                        ,setListener,year,month,day);
+                        , setListener, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.show();
             }
@@ -85,9 +86,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         setListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                month = month+1;
+                month = month + 1;
                 String Month = String.valueOf(month);
-                String date = dayOfMonth+"/"+Month+"/"+year;
+                String date = dayOfMonth + "/" + Month + "/" + year;
                 binding.date.setText(date);
 
             }
@@ -96,22 +97,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
 
-
     @Override
     public void onClick(View view) { //penumpang
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.plus:
-                penumpang ++;
+                penumpang++;
                 binding.pessengers.setText(String.valueOf(penumpang));
                 break;
             case R.id.minus:
-                penumpang --;
+                penumpang--;
                 binding.pessengers.setText(String.valueOf(penumpang));
                 break;
             case R.id.btSearchBus:
-                if(binding.from.getSelectedItem().toString().equals(binding.to.getSelectedItem().toString())){
+                if (binding.from.getSelectedItem().toString().equals(binding.to.getSelectedItem().toString())) {
                     Toast.makeText(getActivity(), "Cannot same place", Toast.LENGTH_SHORT).show();
-                }else if(binding.date == null){
+                } else if (binding.date == null) {
                     Toast.makeText(getActivity(), "Plese select your date", Toast.LENGTH_SHORT).show();
                 }
                 checkPriceAndBus();
@@ -122,7 +122,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 intent.putExtra("date", binding.date.getText().toString());
                 intent.putExtra("jarak", String.valueOf(jarak));
                 startActivity(intent);
-                Toast.makeText(getActivity(), "berhasil"+binding.date.getText().toString() +binding.pessengers.getText().toString() +jarak, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "berhasil" + binding.date.getText().toString() + binding.pessengers.getText().toString() + jarak, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.notif:
                 startActivity(new Intent(getActivity(), NotificationActivity.class));
@@ -142,35 +142,35 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             Toast.makeText(getActivity(), "sukses", Toast.LENGTH_SHORT).show();
             jarak = 87.8;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Surabaya")
+        } else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             jarak = 149;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Malang")
+        } else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Malang")
                 || binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             jarak = 124;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Gresik")
+        } else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Gresik")
                 || binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             jarak = 160;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Surabaya")
+        } else if (binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Pasuruan")) {
             jarak = 66.90;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Surabaya")
+        } else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Malang")) {
             jarak = 125;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Surabaya")
+        } else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Gresik")) {
             jarak = 18;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Pasuruan")
+        } else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Pasuruan")
                 || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Malang")) {
             jarak = 55;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Pasuruan")
+        } else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Pasuruan")
                 || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Gresik")) {
             jarak = 78;
             linkBus = "";
