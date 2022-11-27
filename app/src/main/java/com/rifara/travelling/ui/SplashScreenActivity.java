@@ -1,4 +1,4 @@
-package com.rifara.travelling.ui;
+package com.rifara.travelling;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,11 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.rifara.travelling.MainActivity;
-import com.rifara.travelling.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +20,8 @@ public class SplashScreenActivity extends AppCompatActivity {
             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
             if (currentUser == null) {
                 startActivity(new Intent(SplashScreenActivity.this, SignInActivity.class));
-            }
-            else {
-                startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+            } else {
+                startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class));
             }
             finish();
         },3000);

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg"
+    tools:context=".ui.HomeFragment">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="271dp"
+        android:background="@drawable/bgblue"
+        android:scaleType="fitCenter"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/notif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="219dp"
+        android:src="@drawable/notifikasi" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="103dp"
+        android:text="@string/where_will_you_ngo_today"
+        android:textColor="@color/white"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="30sp" />
+
+    <!--    card From-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="185dp"
+        android:text="@string/welcome"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="213dp"
+        android:layout_marginRight="27dp"
+        android:background="@drawable/bg_card"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="11dp"
+            android:src="@drawable/from"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/from"
+                android:textColor="@color/small_text"
+                android:fontFamily="@font/nunito_regular"
+                android:layout_marginTop="11dp"/>
+            <Spinner
+                android:id="@+id/from"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:entries="@array/Kota"
+                android:fontFamily="@font/nunito_regular"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+<!--    crad To-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="286dp"
+        android:layout_marginRight="27dp"
+        android:background="@drawable/bg_card"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="11dp"
+            android:src="@drawable/to"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/to"
+                android:textColor="@color/small_text"
+                android:fontFamily="@font/nunito_regular"
+                android:layout_marginTop="11dp"/>
+            <Spinner
+                android:id="@+id/to"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:fontFamily="@font/nunito_regular"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+<!--    Card Ketiga-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="359dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/bg_card"
+        android:orientation="vertical">
+
+<!--        Card Pessengers-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="11dp"
+                android:src="@drawable/penumpang"/>
+
+            <TextView
+                android:layout_width="153dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:text="@string/pessengers"
+                android:fontFamily="@font/nunito_regular"
+                android:textColor="@color/small_text" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/minus"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="17dp"
+                android:background="@drawable/min"/>
+            <TextView
+                android:id="@+id/pessengers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/black"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/plus"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="17dp"
+                android:background="@drawable/plus"/>
+
+        </LinearLayout>
+
+<!--        Card Date-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="11dp"
+                android:src="@drawable/date"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date"
+                    android:textColor="@color/small_text"
+                    android:layout_marginTop="11dp"
+                    android:fontFamily="@font/nunito_regular"/>
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="122dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_date"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="class :"
+            android:layout_marginStart="11dp"
+            android:textColor="@color/small_text"/>
+
+<!--        Class Bus-->
+        <RadioGroup
+            android:id="@+id/rgClass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rbExcecutive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/executive"
+                />
+            <RadioButton
+                android:id="@+id/rbPremium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/premium"
+                />
+            <RadioButton
+                android:id="@+id/RbEkonomi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ekonomi"
+                />
+        </RadioGroup>
+
+<!--        Button-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btSearchBus"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_card"
+            android:layout_margin="11dp"
+            android:text="@string/search_bus"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:fontFamily="@font/nunito_semi_bold"
+            android:backgroundTint="#364767"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

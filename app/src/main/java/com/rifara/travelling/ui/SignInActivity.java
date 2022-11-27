@@ -115,7 +115,7 @@ public class SignInActivity extends AppCompatActivity {
                     // Sign In Succes
                     if (firebaseAuth.getCurrentUser().isEmailVerified()) {
                         // Go To MainActivity
-                        startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                        startActivity(new Intent(SignInActivity.this, HomeActivity.class));
                         finish();
                     } else {
                         Utility.showToast(SignInActivity.this, "Harap Verifikasi Email Terlebih Dahulu!");
