@@ -12,7 +12,7 @@ import com.rifara.travelling.ui.HistoryFragment;
 import com.rifara.travelling.ui.HomeFragment;
 import com.rifara.travelling.ui.ProfileFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNav;
     FrameLayout frame;
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         bottomNav = findViewById(R.id.nav_view);
         frame = findViewById(R.id.f_container);
