@@ -3,16 +3,23 @@ package com.rifara.travelling;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -30,7 +37,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
     private ActivityDetailPesananBinding binding;
     int price, totalprice, pessengers;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String nameBus, pessenger, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance, seats;
+    String nameBus, pessenger, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance, seats, imgbus;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -51,29 +58,19 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         longTime = detail.getString("long_time");
         date = detail.getString("date");
         type = detail.getString("type");
-        pessenger = detail.getString("pessenger");
-
-        seats = getIntent().getStringExtra("total_seat"); //gagal get data seat
-        binding.tvSeat.setText(seats);
-
-        binding.nameBusDetail.setText(nameBus);
-        binding.fromDetail.setText(from);
-        binding.toDetail.setText(to);
-        binding.pickUpDetail.setText(pickUp);
-        binding.dropOffDetail.setText(dropOff);
-        binding.timeStartDetail.setText(timeStart);
-        binding.timeEndDetail.setText(timeEnd);
-        binding.longTimeDetail.setText(longTime);
-        binding.dateDetail.setText(date);
-        binding.tvClass.setText(type);
+        imgbus = detail.getString("imgbus");
         distance = detail.getString("distance");
-
+        pessenger = detail.getString("pessenger");
         price = Integer.parseInt(detail.getString("price"));
+        Toast.makeText(this, ""+imgbus, Toast.LENGTH_SHORT).show();
+
+
         pessengers = Integer.parseInt(pessenger);
         totalprice = price * pessengers;
 
-        binding.totalPrice.setText(getPrice(totalprice));
-        binding.pessengersDetail.setText(pessenger + " Pessengers");
+
+        seats = getIntent().getStringExtra("total_seat"); //gagal get data seat
+        binding.tvSeat.setText(seats);
 
         binding.bookNow.setOnClickListener(this);
         binding.btChooseSeat.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +84,26 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         binding.imgBack.setOnClickListener(view1 -> {
             startActivity(new Intent(DetailPesananActivity.this, SearchActivity.class));
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        binding.nameBusDetail.setText(nameBus);
+        binding.fromDetail.setText(from);
+        binding.toDetail.setText(to);
+        binding.pickUpDetail.setText(pickUp);
+        binding.dropOffDetail.setText(dropOff);
+        binding.timeStartDetail.setText(timeStart);
+        binding.timeEndDetail.setText(timeEnd);
+        binding.longTimeDetail.setText(longTime);
+        binding.dateDetail.setText(date);
+        binding.tvClass.setText(type);
+
+        binding.totalPrice.setText(getPrice(totalprice));
+        binding.pessengersDetail.setText(pessenger + " Pessengers");
+
+        getImageBus(); //gagal menampilkan gambar
     }
 
     @Override
@@ -125,6 +142,26 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
                     }
                 });
     }
+
+    private void getImageBus(){
+        Glide.with(this.getApplicationContext())
+                .load(imgbus)
+                .error(R.drawable.ic_launcher_background)
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+
+                        return false;
+                    }
+                })
+                .into(binding.imgBus);
+    }
+
     private String getPrice(double price){
         Locale localeID = new Locale("in", "ID");
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);

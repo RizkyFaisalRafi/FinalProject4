@@ -41,9 +41,13 @@
             android:background="@color/bg">
 
             <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imgBus"
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/bus"
                 app:riv_corner_radius="6dp" />
@@ -70,7 +74,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="257dp"
                 android:layout_marginEnd="27dp"
-                android:src="@drawable/card" />
+                android:src="@drawable/cardstar" />
 
             <ImageView
                 android:layout_width="wrap_content"

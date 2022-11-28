@@ -34,7 +34,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
     @NonNull
     @Override
     public BusAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.itembus, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_bustrav, parent, false);
         return new ListViewHolder(itemView);
     }
 
@@ -45,7 +45,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
         holder.naik.setText(list.get(position).getPickUp());
         holder.turun.setText(list.get(position).getDropOff());
         holder.type.setText(list.get(position).getType());
-        holder.harga.setText(list.get(position).getPrice());
+        holder.harga.setText("Rp. " + list.get(position).getPrice());
         holder.waktu.setText(list.get(position).getTime());
         holder.start.setText(list.get(position).getTime_start());
         holder.end.setText(list.get(position).getTime_end());
