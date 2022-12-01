@@ -10,11 +10,12 @@ import android.widget.Toast;
 
 import com.rifara.travelling.databinding.ActivitySeatBinding;
 
+import java.util.prefs.Preferences;
+
 public class SeatActivity extends AppCompatActivity implements View.OnClickListener {
 
     ActivitySeatBinding binding;
     int total_pessenger;
-
     int totalClick2 = 0;
 
     int seat, seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat10, seat11, seat12, seat13, seat14, seat15, seat16, seat17,
@@ -64,21 +65,14 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
         binding.view30.setOnClickListener(this);
         binding.view31.setOnClickListener(this);
 
-//        int total = (seat1 + seat2 + seat3 + seat4 + seat5 + seat6 + seat7 + seat8 + seat9 + seat10 + seat11 + seat12 + seat13 + seat14 + seat15 + seat16 + seat17
-//                + seat18 + seat19 + seat20 + seat21 + seat22 + seat23 + seat24 + seat25 + seat26 + seat27 + seat28 + seat29 + seat30 + seat31);
-//        binding.totalseat.setText(String.valueOf(total));
-
-//        if(total == Integer.parseInt(total_pessenger)) {
-//            Toast.makeText(this, ""+total, Toast.LENGTH_SHORT).show();
-//        }
-
-//        for (seat = 0 ; seat <= total_pessenger; seat++) {
-//
-//        }
         binding.btnBookNow.setOnClickListener(view -> {
             Intent intent = new Intent(SeatActivity.this, DetailPesananActivity.class);
-            intent.putExtra("kode_seat", binding.totalseat.getText().toString());
-            startActivity(intent);
+//            intent.putExtra("kode_seat", binding.totalseat.getText().toString());
+            if(seat == total_pessenger|| seat == total_pessenger) {
+                startActivity(intent);
+            }else {
+                Toast.makeText(this, "Please choose " + total_pessenger + " seats", Toast.LENGTH_SHORT).show();
+            }
         });
         binding.imgBack.setOnClickListener(view1 -> startActivity(new Intent(SeatActivity.this, DetailPesananActivity.class)));
     }

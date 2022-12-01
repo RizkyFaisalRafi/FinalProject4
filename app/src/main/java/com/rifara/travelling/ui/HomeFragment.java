@@ -132,8 +132,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             Toast.makeText(getActivity(), "sukses", Toast.LENGTH_SHORT).show();
             jarak = 87.8;
+            linkBus = "https://4.bp.blogspot.com/-WbGOH6vIl-M/V5letupc-BI/AAAAAAAABDM/r0jqkLXxYfM7bFNuKQS0jV52s-BL2YqGACLcB/s1600/akas%2BI.JPG";
 //            linkBus = "https://drive.google.com/file/d/1NDIHgInHapEiKBhfkHlqTn3afU62KwPf/view?usp=sharing";
-            linkBus = "https://drive.google.com/file/d/1fyhgSf8rSARByT4i_TyRaU-Abvloc5MH/view?usp=sharing";
+//            linkBus = "https://drive.google.com/file/d/1fyhgSf8rSARByT4i_TyRaU-Abvloc5MH/view?usp=sharing";
         }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             jarak = 149;
@@ -149,7 +150,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         }else if (binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Pasuruan")) {
             jarak = 66.90;
-            linkBus = "";
+            linkBus = "https://jadwalbis.com/images/bus_logo/61547445_688326811623726_5558866464863158272_n.jpg";
         }else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Malang")) {
             jarak = 125;
@@ -157,7 +158,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         }else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Gresik")) {
             jarak = 18;
-            linkBus = "";
+            linkBus = "https://ik.imagekit.io/tvlk/image/imageResource/2018/12/05/1544004740153-50b7565a2aeb2f73e30f979ac9b93644.jpeg?tr=q-75";
         }else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Pasuruan")
                 || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Malang")) {
             jarak = 55;
