@@ -17,10 +17,8 @@ import com.rifara.travelling.Adapter.BusAdapter;
 import com.rifara.travelling.Model.Bus;
 import com.rifara.travelling.databinding.ActivitySearchBinding;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -60,23 +58,17 @@ public class SearchActivity extends AppCompatActivity {
         distance = data.getString("jarak") + " km";
         imgbus = data.getString("imgBus");
 
-        binding.dateSearch.setText(date + " - " + String.valueOf(pessenger) +" pessengers" + " - " + distance);
+        binding.dateSearch.setText(date + " - " + pessenger +" pessengers" + " - " + distance);
         from = binding.fromSearch.getText().toString();
         to = binding.toSearch.getText().toString();
         getBus();
 
-        busAdapter.setOnItemClickCallback(new BusAdapter.OnItemClickCallback() {
-            @Override
-            public void onItemClicked(Bus data) {
-                showSelectedBus(data);
-            }
-        });
-        binding.back.setOnClickListener(view1 -> {
-            startActivity(new Intent(SearchActivity.this, MainActivity.class));
-        });
+        busAdapter.setOnItemClickCallback(data1 -> showSelectedBus(data1));
+        binding.back.setOnClickListener(view1 -> startActivity(new Intent(SearchActivity.this, MainActivity.class)));
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     private void getBus(){
         binding.simpleProgressBar.setVisibility(View.VISIBLE);
         if (from.equals("Probolinggo") && to.equals("Pasuruan")) {

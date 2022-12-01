@@ -10,12 +10,11 @@ import android.widget.Toast;
 
 import com.rifara.travelling.databinding.ActivitySeatBinding;
 
-import java.util.prefs.Preferences;
-
 public class SeatActivity extends AppCompatActivity implements View.OnClickListener {
 
     ActivitySeatBinding binding;
     int total_pessenger;
+    private Preferences preferences;
     int totalClick2 = 0;
 
     int seat, seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat10, seat11, seat12, seat13, seat14, seat15, seat16, seat17,
@@ -30,6 +29,7 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivitySeatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        preferences = new Preferences(this);
         total_pessenger = Integer.parseInt(getIntent().getStringExtra("total_pessenger"));
         Toast.makeText(this, "" + total_pessenger, Toast.LENGTH_SHORT).show();
 
@@ -68,7 +68,8 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
         binding.btnBookNow.setOnClickListener(view -> {
             Intent intent = new Intent(SeatActivity.this, DetailPesananActivity.class);
 //            intent.putExtra("kode_seat", binding.totalseat.getText().toString());
-            if(seat == total_pessenger|| seat == total_pessenger) {
+            if(seat == total_pessenger) {
+                preferences.getEditor().putString("kodeseat", binding.totalseat.getText().toString()).apply();
                 startActivity(intent);
             }else {
                 Toast.makeText(this, "Please choose " + total_pessenger + " seats", Toast.LENGTH_SHORT).show();

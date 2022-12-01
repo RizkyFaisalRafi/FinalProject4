@@ -133,8 +133,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             Toast.makeText(getActivity(), "sukses", Toast.LENGTH_SHORT).show();
             jarak = 87.8;
             linkBus = "https://4.bp.blogspot.com/-WbGOH6vIl-M/V5letupc-BI/AAAAAAAABDM/r0jqkLXxYfM7bFNuKQS0jV52s-BL2YqGACLcB/s1600/akas%2BI.JPG";
-//            linkBus = "https://drive.google.com/file/d/1NDIHgInHapEiKBhfkHlqTn3afU62KwPf/view?usp=sharing";
-//            linkBus = "https://drive.google.com/file/d/1fyhgSf8rSARByT4i_TyRaU-Abvloc5MH/view?usp=sharing";
         }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             jarak = 149;
