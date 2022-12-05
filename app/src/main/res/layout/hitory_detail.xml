@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="30dp">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingConstraints">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="No Tiket"
+            android:id="@+id/tvno_tiket"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="namabus"
+            android:textSize="20dp"
+            android:id="@+id/tvnama_bus"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="ExtraText">
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:paddingLeft="20dp"
+            android:layout_height="wrap_content"
+            android:text="pick up"
+            android:id="@+id/tvpick_up"/>
+        <TextView
+            android:id="@+id/tanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Tanggal"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="80dp">
+        <ImageView
+            android:paddingLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_bawah"
+            android:layout_alignParentLeft="true"/>
+        <TextView
+            android:id="@+id/tvdistance"
+            android:paddingLeft="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Distance"/>
+        <TextView
+            android:paddingLeft="170dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pessager"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="set"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="60dp">
+        <TextView
+            android:id="@+id/tvdrop_off"
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="drop off"/>
+
+        <TextView
+            android:id="@+id/tvpessanger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="170dp"
+            android:text="2" />
+        <TextView
+            android:id="@+id/tvset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A2-A3"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingLeft="170dp"
+            android:layout_alignParentLeft="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time Start "/>
+        <TextView
+            android:paddingRight="40dp"
+            android:id="@+id/tvtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time end"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvtime_start"
+            android:paddingLeft="170dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="07 : 00 "/>
+        <TextView
+            android:id="@+id/tvtime_end"
+            android:paddingRight="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 : 00"
+            android:layout_alignParentRight="true"/>
+
+
+    </RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
+    <View
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="3dp"
+        android:background="@color/black"/>
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingLeft="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="price"/>
+        <TextView
+            android:paddingLeft="170dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Qty"/>
+        <TextView
+            android:id="@+id/tipeTiket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOTAL PRICE"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingLeft="170dp"
+            android:id="@+id/tvpessanger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:paddingLeft="70dp"
+            android:id="@+id/tvprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.000" />
+        <TextView
+            android:paddingRight="30dp"
+            android:id="@+id/tvtotal_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200.000"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/br"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/qr" />
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/br"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaction Success!"/>
+    </RelativeLayout>
+    <TextView
+        android:layout_gravity="center"
+        android:layout_below="@+id/br"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes! enjoy your bill. Don’t
+Forget to check on your history"/>
+<Button
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Home"/>
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
