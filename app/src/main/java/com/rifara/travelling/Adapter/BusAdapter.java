@@ -47,7 +47,8 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
             context.startActivity(intent);
         });
     }
-
+//Testingg
+//test
     @Override
     public int getItemCount() {
         return list.size();
