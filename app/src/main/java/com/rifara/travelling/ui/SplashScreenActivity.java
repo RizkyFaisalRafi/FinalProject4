@@ -20,12 +20,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         new Handler().postDelayed(() -> {
             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-            if (currentUser != null) {
+            if (currentUser == null) {
                 startActivity(new Intent(SplashScreenActivity.this, SignInActivity.class));
             } else {
                 startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
             }
-//            startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
             finish();
         },3000);
 
