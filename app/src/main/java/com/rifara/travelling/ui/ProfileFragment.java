@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.rifara.travelling.MainActivity;
 import com.rifara.travelling.R;
 import com.rifara.travelling.Utility;
@@ -70,9 +71,29 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         } else if (view.getId() == R.id.cv_keluar_akun) {
             Utility.showToast(getActivity(),"Keluar Akun");
-            startActivity(new Intent(getActivity(), SignInActivity.class));
-//            activity.finishAffinity();
-            requireActivity().finish();
+//            startActivity(new Intent(getActivity(), SignInActivity.class));
+//            requireActivity().finish();
+
+            signOut();
+
         }
+    }
+
+
+    void signOut() {
+//        // Google
+//        googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(Task<Void> task) {
+//                startActivity(new Intent(MainActivity.this, SignInActivity.class));
+//                finish();
+//            }
+//        });
+
+        // Auth
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getActivity(), SignInActivity.class));
+        requireActivity().finish();
+
     }
 }
