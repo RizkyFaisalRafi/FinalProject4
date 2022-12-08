@@ -6,6 +6,8 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rifara.travelling.MainActivity;
@@ -20,11 +22,17 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         new Handler().postDelayed(() -> {
             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-            if (currentUser == null) {
+            if (currentUser == null) { // Auth
                 startActivity(new Intent(SplashScreenActivity.this, SignInActivity.class));
             } else {
                 startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
             }
+
+            GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(this);
+            if (googleSignInAccount != null) { // Google SignIn
+                startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+            }
+
             finish();
         },3000);
 

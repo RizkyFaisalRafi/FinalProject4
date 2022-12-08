@@ -14,6 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rifara.travelling.MainActivity;
 import com.rifara.travelling.R;
@@ -23,6 +29,9 @@ import java.util.Objects;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
     CardView editProfile, hubungiKami, tentangAplikasi, keluarAkun;
+
+    GoogleSignInOptions googleSignInOptions;
+    GoogleSignInClient googleSignInClient;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +62,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         tentangAplikasi.setOnClickListener(this);
         keluarAkun.setOnClickListener(this);
 
+
+        googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        googleSignInClient = GoogleSignIn.getClient(getActivity(), googleSignInOptions);
+
+        GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(getActivity());
+
+
     }
 
     @Override
@@ -81,14 +97,14 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
 
     void signOut() {
-//        // Google
-//        googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(Task<Void> task) {
-//                startActivity(new Intent(MainActivity.this, SignInActivity.class));
-//                finish();
-//            }
-//        });
+        // Google
+        googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(Task<Void> task) {
+                startActivity(new Intent(getActivity(), SignInActivity.class));
+                requireActivity().finish();
+            }
+        });
 
         // Auth
         FirebaseAuth.getInstance().signOut();

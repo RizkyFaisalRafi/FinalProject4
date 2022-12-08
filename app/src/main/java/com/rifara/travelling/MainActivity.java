@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.profil:
                     fragment = new ProfileFragment();
+                    break;
             }
             LoadFragment(fragment);
             return true;
@@ -64,21 +65,4 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-
-    void signOut() {
-//        // Google
-//        googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(Task<Void> task) {
-//                startActivity(new Intent(MainActivity.this, SignInActivity.class));
-//                finish();
-//            }
-//        });
-
-        // Auth
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-        finish();
-
-    }
 }
