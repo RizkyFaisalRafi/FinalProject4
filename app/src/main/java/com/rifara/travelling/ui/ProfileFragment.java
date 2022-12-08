@@ -87,8 +87,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         } else if (view.getId() == R.id.cv_keluar_akun) {
             Utility.showToast(getActivity(),"Keluar Akun");
-//            startActivity(new Intent(getActivity(), SignInActivity.class));
-//            requireActivity().finish();
 
             signOut();
 
