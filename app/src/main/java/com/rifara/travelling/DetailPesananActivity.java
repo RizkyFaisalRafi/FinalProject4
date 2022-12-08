@@ -68,9 +68,30 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
             intent.putExtra("total_pessenger", pessenger);
             startActivity(intent);
         });
-        binding.imgBack.setOnClickListener(view1 -> startActivity(new Intent(DetailPesananActivity.this, SearchActivity.class)));
+        binding.imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DetailPesananActivity.this, SearchActivity.class));
+                preferences.getEditor().clear().apply();
+            }
+        });
         getImageBus();
   }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        seats = preferences.getSharedPreferences().getString("kodeseat", null);
+        if (seats != null){
+            binding.tvSeat.setText(seats);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        preferences.getEditor().clear().apply();
+    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -89,10 +110,6 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         binding.totalPrice.setText(getPrice(totalprice));
         binding.pessengersDetail.setText(pessenger + " Pessengers");
 
-        seats = preferences.getSharedPreferences().getString("kodeseat", "0");
-
-        binding.tvSeat.setText(seats);
-        preferences.getEditor().clear().apply();
     }
 
     @Override
