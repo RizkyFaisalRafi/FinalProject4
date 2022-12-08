@@ -4,13 +4,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.rifara.travelling.ui.HistoryFragment;
 import com.rifara.travelling.ui.HomeFragment;
 import com.rifara.travelling.ui.ProfileFragment;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.rifara.travelling.ui.SignInActivity;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,12 +54,31 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
     }
+
     //pindah antar fragment
-    private void LoadFragment(Fragment fragment){
+    private void LoadFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.f_container, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .commit();
+    }
+
+
+    void signOut() {
+//        // Google
+//        googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(Task<Void> task) {
+//                startActivity(new Intent(MainActivity.this, SignInActivity.class));
+//                finish();
+//            }
+//        });
+
+        // Auth
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+        finish();
+
     }
 }
