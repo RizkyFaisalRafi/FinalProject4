@@ -27,11 +27,23 @@ import com.rifara.travelling.Utility;
 
 import java.util.Objects;
 
+
 public class ProfileFragment extends Fragment implements View.OnClickListener {
     CardView editProfile, hubungiKami, tentangAplikasi, keluarAkun;
 
     GoogleSignInOptions googleSignInOptions;
     GoogleSignInClient googleSignInClient;
+
+    public ProfileFragment() {
+        // Required empty public constructor
+    }
+
+    public static ProfileFragment newInstance(String param1, String param2) {
+        ProfileFragment fragment = new ProfileFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

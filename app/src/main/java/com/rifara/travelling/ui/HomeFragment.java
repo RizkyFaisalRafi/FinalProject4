@@ -2,15 +2,19 @@ package com.rifara.travelling.ui;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+
 import android.widget.RadioButton;
+
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,9 +22,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.rifara.travelling.NotificationActivity;
 import com.rifara.travelling.R;
 import com.rifara.travelling.databinding.FragmentHomeBinding;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
@@ -30,9 +36,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private int penumpang = 0;
     DatePickerDialog datePickerDialog;
     DatePickerDialog.OnDateSetListener setListener;
-    RadioButton rb;
-    String nameBus, linkBus = "";
-    int price,longTime;
+    String linkBus = "";
     double jarak;
 
 
@@ -50,6 +54,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         db = FirebaseFirestore.getInstance();
         binding.btSearchBus.setOnClickListener(this);
+        binding.notif.setOnClickListener(this);
 
 // Spinner from
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Kota, android.R.layout.simple_spinner_item);
@@ -72,27 +77,25 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding.date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                datePickerDialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog_MinWidth
-                        ,setListener,year,month,day);
-                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog = new DatePickerDialog(getActivity(), setListener, year,month,day);
                 datePickerDialog.show();
             }
         });
         setListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                month = month+1;
-                String Month = String.valueOf(month);
-                String date = dayOfMonth+"/"+Month+"/"+year;
-                binding.date.setText(date);
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                String pickerDateString = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+                binding.date.setText(pickerDateString);
 
             }
         };
 
     }
-
-
 
     @Override
     public void onClick(View view) { //penumpang
@@ -107,97 +110,65 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.btSearchBus:
                 if(binding.from.getSelectedItem().toString().equals(binding.to.getSelectedItem().toString())){
-                    Toast.makeText(getActivity(), "Cannot same place", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "lengkapi dulu", Toast.LENGTH_SHORT).show();
                 }else if(binding.date == null){
                     Toast.makeText(getActivity(), "Plese select your date", Toast.LENGTH_SHORT).show();
+                }else if(binding.pessengers == null){
+                    Toast.makeText(getActivity(), "Plese select your pessengers", Toast.LENGTH_SHORT).show();
+                }else{
+                    checkPriceAndBus();
+                    Intent intent = new Intent(getActivity(), SearchActivity.class);
+                    intent.putExtra("from", binding.from.getSelectedItem().toString());
+                    intent.putExtra("to", binding.to.getSelectedItem().toString());
+                    intent.putExtra("pessengers", binding.pessengers.getText().toString());
+                    intent.putExtra("date", binding.date.getText().toString());
+                    intent.putExtra("jarak", String.valueOf(jarak));
+                    intent.putExtra("imgBus", String.valueOf(linkBus));
+                    startActivity(intent);
                 }
-                checkPriceAndBus();
-                Intent intent = new Intent(getActivity(), SearchActivity.class);
-                intent.putExtra("from", binding.from.getSelectedItem().toString());
-                intent.putExtra("to", binding.to.getSelectedItem().toString());
-                intent.putExtra("pessengers", binding.pessengers.getText().toString());
-                intent.putExtra("date", binding.date.getText().toString());
-                intent.putExtra("jarak", String.valueOf(jarak));
-//                intent.putExtra("price", price);
-//                intent.putExtra("nameBus", nameBus);
-//                intent.putExtra("longTime", longTime);
-//                intent.putExtra("imgBus", linkBus);
-                startActivity(intent);
-                Toast.makeText(getActivity(), "berhasil"+binding.date.getText().toString() +binding.pessengers.getText().toString() +jarak, Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.notif:
+                startActivity(new Intent(getActivity(), NotificationActivity.class));
         }
     }
 
     private void checkPriceAndBus() {
-//       String from = binding.from.getSelectedItem().toString(); //Gagal
-//        String to = binding.from.getSelectedItem().toString();
-
-//        if(from.equals("Probolinggo") && to.equals("Pasuruan")){
-//            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-//        }
 
         if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Pasuruan")
                 || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             Toast.makeText(getActivity(), "sukses", Toast.LENGTH_SHORT).show();
-            price = 25000;
-            longTime = 2;
-            nameBus = "AKAS";
             jarak = 87.8;
-            linkBus = "";
+            linkBus = "https://4.bp.blogspot.com/-WbGOH6vIl-M/V5letupc-BI/AAAAAAAABDM/r0jqkLXxYfM7bFNuKQS0jV52s-BL2YqGACLcB/s1600/akas%2BI.JPG";
         }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
-            price = 50000;
-            longTime = 4;
-            nameBus = "AKAS";
             jarak = 149;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Malang")
                 || binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
-            price = 40000;
-            longTime = 3;
-            nameBus = "AKAS";
             jarak = 124;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Gresik")
                 || binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
-            price = 70000;
-            longTime = 6;
-            nameBus = "AKAS";
             jarak = 160;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Pasuruan")) {
-            price = 20000;
-            longTime = 1;
-            nameBus = "AKAS";
             jarak = 66.90;
-            linkBus = "";
+            linkBus = "https://jadwalbis.com/images/bus_logo/61547445_688326811623726_5558866464863158272_n.jpg";
         }else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Malang")) {
-            price = 40000;
-            longTime = 2;
-            nameBus = "AKAS";
             jarak = 125;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Surabaya")
                 || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Gresik")) {
-            price = 15000;
-            longTime = 1;
-            nameBus = "AKAS";
             jarak = 18;
-            linkBus = "";
+            linkBus = "https://ik.imagekit.io/tvlk/image/imageResource/2018/12/05/1544004740153-50b7565a2aeb2f73e30f979ac9b93644.jpeg?tr=q-75";
         }else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Pasuruan")
                 || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Malang")) {
-            price = 30000;
-            longTime = 1;
-            nameBus = "AKAS";
             jarak = 55;
             linkBus = "";
         }else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Pasuruan")
                 || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Gresik")) {
-            price = 50000;
-            longTime = 3;
-            nameBus = "AKAS";
             jarak = 78;
             linkBus = "";
         }
