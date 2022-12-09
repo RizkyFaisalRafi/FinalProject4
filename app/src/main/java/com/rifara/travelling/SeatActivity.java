@@ -13,7 +13,7 @@ import com.rifara.travelling.ui.DetailPesananActivity;
 
 public class SeatActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ActivitySeatBinding binding;
+    private ActivitySeatBinding binding;
     int total_pessenger;
     private Preferences preferences;
     int totalClick2 = 0;

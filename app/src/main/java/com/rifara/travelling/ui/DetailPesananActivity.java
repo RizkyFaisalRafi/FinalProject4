@@ -43,7 +43,6 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         binding = ActivityDetailPesananBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        setContentView(R.layout.activity_detail_pesanan);
 
         preferences = new Preferences(this);
         Bundle detail = getIntent().getExtras();
@@ -72,12 +71,9 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
             intent.putExtra("total_pessenger", pessenger);
             startActivity(intent);
         });
-        binding.imgBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DetailPesananActivity.this, SearchActivity.class));
-                preferences.getEditor().clear().apply();
-            }
+        binding.imgBack.setOnClickListener(view1 -> {
+            startActivity(new Intent(DetailPesananActivity.this, SearchActivity.class));
+            preferences.getEditor().clear().apply();
         });
         getImageBus();
   }
