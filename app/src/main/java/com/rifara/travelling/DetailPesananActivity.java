@@ -115,21 +115,21 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View view) {
         Map<String, Object> detail = new HashMap<>();
-        detail.put("name bus", nameBus );
+        detail.put("name_bus", nameBus );
         detail.put("from", from);
         detail.put("to", to);
         detail.put("pessenger", pessenger);
-        detail.put("pick up", pickUp);
-        detail.put("drop off", dropOff);
-        detail.put("time start", timeStart);
-        detail.put("time end", timeEnd);
-        detail.put("long time", longTime);
+        detail.put("pick_up", pickUp);
+        detail.put("drop_off", dropOff);
+        detail.put("time_start", timeStart);
+        detail.put("time_end", timeEnd);
+        detail.put("long_time", longTime);
         detail.put("date", date);
         detail.put("type", type);
         detail.put("distance", distance);
         detail.put("price", String.valueOf(price));
-        detail.put("total price", String.valueOf(totalprice));
-        detail.put("kode seat", seats);
+        detail.put("total_price", String.valueOf(totalprice));
+        detail.put("kode_seat", seats);
 
 // Add a new document with a generated ID
         db.collection("Booking")
