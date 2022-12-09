@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.rifara.travelling.databinding.ActivitySeatBinding;
+import com.rifara.travelling.ui.DetailPesananActivity;
 
 public class SeatActivity extends AppCompatActivity implements View.OnClickListener {
 
