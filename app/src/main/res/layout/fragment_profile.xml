@@ -7,10 +7,10 @@
     android:background="#E3E7EC">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/transactionToolbar"
+        android:id="@+id/profileToolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/white"
+        android:background="#364767"
         android:elevation="8dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -26,17 +26,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!--            <ImageButton-->
+            <!--                android:id="@+id/btn_back"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:src="@drawable/ic_back_white"-->
+            <!--                android:layout_marginStart="8dp"-->
+            <!--                android:backgroundTint="#364767"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
             <TextView
                 android:id="@+id/tv_transaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Akun"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +61,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transactionToolbar">
+        app:layout_constraintTop_toBottomOf="@+id/profileToolbar">
 
         <LinearLayout
             android:id="@+id/box_biodata"

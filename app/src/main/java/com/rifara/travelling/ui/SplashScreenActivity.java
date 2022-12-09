@@ -1,5 +1,6 @@
 package com.rifara.travelling.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,8 +12,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rifara.travelling.MainActivity;
+import com.rifara.travelling.OrderHistoryActivity;
 import com.rifara.travelling.R;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
