@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.rifara.travelling.History.History;
 import com.rifara.travelling.ui.HistoryFragment;
 import com.rifara.travelling.ui.HomeFragment;
 import com.rifara.travelling.ui.ProfileFragment;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new HomeFragment();
                     break;
                 case R.id.history:
-                    fragment = new HistoryFragment();
+                    Intent intent = new Intent(MainActivity.this, History.class);
                     break;
                 case R.id.profil:
                     fragment = new ProfileFragment();
@@ -50,4 +52,5 @@ public class MainActivity extends AppCompatActivity {
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .commit();
     }
+
 }
