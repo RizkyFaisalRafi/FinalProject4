@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -30,26 +31,10 @@ import java.util.Objects;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
     CardView editProfile, hubungiKami, tentangAplikasi, keluarAkun;
+    TextView tvName, tvEmail;
 
     GoogleSignInOptions googleSignInOptions;
     GoogleSignInClient googleSignInClient;
-
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
-
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,6 +53,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         tentangAplikasi = view.findViewById(R.id.cv_tentang_aplikasi);
         keluarAkun = view.findViewById(R.id.cv_keluar_akun);
 
+        tvName = view.findViewById(R.id.tv_name_profile);
+        tvEmail = view.findViewById(R.id.tv_email_profile);
+
 
         editProfile.setOnClickListener(this);
         hubungiKami.setOnClickListener(this);
@@ -79,6 +67,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         googleSignInClient = GoogleSignIn.getClient(getActivity(), googleSignInOptions);
 
         GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(getActivity());
+        if (googleSignInAccount != null) {
+            tvName.setText(googleSignInAccount.getDisplayName()); // Menampilkan data di profile
+            tvEmail.setText(googleSignInAccount.getEmail()); // Menampilkan data di profile
+        }
 
 
     }
@@ -107,7 +99,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
 
     void signOut() {
-        // Google
+//         Google
         googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(Task<Void> task) {

@@ -49,7 +49,7 @@ public class HistoryFragment extends Fragment {
 //        progressDialog.setMessage("Fetching Data...");
 //        progressDialog.show();
 
-        recyclerView = view.findViewById(R.id.recycler_view_history);
+        recyclerView = view.findViewById(R.id.recycler_view_historyy);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
 

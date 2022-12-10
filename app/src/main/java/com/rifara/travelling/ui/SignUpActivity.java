@@ -28,7 +28,7 @@ import java.util.Objects;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText nameEt, emailEt, passEt, confirmPassEt;
+    EditText nameEt, emailEt, passEt, confirmPassEt, phoneNumberEt;
     LinearLayout createAccountBtn;
     ProgressBar progressBar;
     TextView loginBtn;
@@ -43,6 +43,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         passEt = findViewById(R.id.et_password);
         confirmPassEt = findViewById(R.id.et_confirm_password);
         createAccountBtn = findViewById(R.id.linear_button_signup);
+        phoneNumberEt = findViewById(R.id.et_phone_number); //
         loginBtn = findViewById(R.id.tv_sign_in);
         progressBar = findViewById(R.id.loading);
 
@@ -65,18 +66,19 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String email = emailEt.getText().toString();
         String password = passEt.getText().toString();
         String confirmPassword = confirmPassEt.getText().toString();
+        String phoneNumber = phoneNumberEt.getText().toString();
 
-        boolean isValidated = validateData(name, email, password, confirmPassword);
+        boolean isValidated = validateData(name, email, password, confirmPassword, phoneNumber); //
         if (!isValidated) {
             return;
         }
 
         createAccountInFirebaseAuth(email, password); // Authentication
-        createAccountRealtimeDatabase(name, email, password); // Realtime Database
+        createAccountRealtimeDatabase(name, email, password, phoneNumber); // Realtime Database
 
     }
 
-    private void createAccountRealtimeDatabase(String name, String email, String password) {
+    private void createAccountRealtimeDatabase(String name, String email, String password, String phoneNumber) {
 
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -92,6 +94,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     databaseReference.child("users").child(name).child("name").setValue(name);
                     databaseReference.child("users").child(name).child("email").setValue(email);
                     databaseReference.child("users").child(name).child("password").setValue(password);
+                    databaseReference.child("users").child(name).child("phone").setValue(phoneNumber);
 
                 }
             }
@@ -137,7 +140,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    boolean validateData(String name, String email, String password, String confrimPassword) {
+    boolean validateData(String name, String email, String password, String confrimPassword, String phoneNumber) {
 
         if (name.isEmpty()) {
             nameEt.setError("Nama tidak boleh kosong");
@@ -153,6 +156,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
         if (!password.equals(confrimPassword)) {
             confirmPassEt.setError("Password tidak sama");
+            return false;
+        }
+        if (phoneNumber.length() <= 10) {
+            phoneNumberEt.setError("Nomor harus lebih dari 10 karakter");
             return false;
         }
         return true;
