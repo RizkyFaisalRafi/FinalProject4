@@ -1,7 +1,5 @@
 package com.rifara.travelling.ui;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -22,9 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.rifara.travelling.Adapter.HistoryAdapter;
-import com.rifara.travelling.OrderHistoryActivity;
 import com.rifara.travelling.R;
-import com.rifara.travelling.SeatActivity;
 import com.rifara.travelling.User;
 
 import java.util.ArrayList;
@@ -35,7 +30,7 @@ public class HistoryFragment extends Fragment {
     ArrayList<User> userArrayList;
     HistoryAdapter historyAdapter;
     FirebaseFirestore firebaseFirestore;
-    ProgressDialog progressDialog;
+//    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,10 +44,10 @@ public class HistoryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        progressDialog = new ProgressDialog(requireActivity());
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("Fetching Data...");
-        progressDialog.show();
+//        progressDialog = new ProgressDialog(requireActivity());
+//        progressDialog.setCancelable(false);
+//        progressDialog.setMessage("Fetching Data...");
+//        progressDialog.show();
 
         recyclerView = view.findViewById(R.id.recycler_view_history);
         recyclerView.setHasFixedSize(true);
@@ -77,8 +72,8 @@ public class HistoryFragment extends Fragment {
 
                         if (error != null) {
 
-                            if (progressDialog.isShowing())
-                                progressDialog.dismiss();
+//                            if (progressDialog.isShowing())
+//                                progressDialog.dismiss();
 
                             Log.e("Firestore Error", error.getMessage());
                             return;
@@ -91,8 +86,8 @@ public class HistoryFragment extends Fragment {
 
                             historyAdapter.notifyDataSetChanged();
 
-                            if (progressDialog.isShowing())
-                                progressDialog.dismiss();
+//                            if (progressDialog.isShowing())
+//                                progressDialog.dismiss();
 
                         }
 
