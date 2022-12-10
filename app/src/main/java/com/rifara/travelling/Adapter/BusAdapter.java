@@ -50,10 +50,10 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
         holder.start.setText(list.get(position).getTime_start());
         holder.end.setText(list.get(position).getTime_end());
 
-//        holder.bookNow.setOnClickListener(view -> {
-//            Intent intent = new Intent(context.getApplicationContext(), DetailPesananActivity.class);
-//            context.startActivity(intent);
-//        });
+        holder.bookNow.setOnClickListener(view -> {
+            Intent intent = new Intent(context.getApplicationContext(), DetailPesananActivity.class);
+            context.startActivity(intent);
+        });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
