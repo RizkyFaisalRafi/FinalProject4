@@ -357,7 +357,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="70dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -383,7 +383,7 @@
                     android:fontFamily="@font/nunito_bold"
                     android:textSize="15sp"
                     android:textColor="@color/small_text"
-                    android:text="0"/>
+                    android:text=" "/>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_choose_seat"
