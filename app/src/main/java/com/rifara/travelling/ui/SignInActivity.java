@@ -1,8 +1,5 @@
 package com.rifara.travelling.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -13,7 +10,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,10 +25,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.rifara.travelling.MainActivity;
 import com.rifara.travelling.R;
 import com.rifara.travelling.Utility;
-
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 
 public class SignInActivity extends AppCompatActivity {
@@ -44,7 +42,6 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
 
         emailEt = findViewById(R.id.et_email_sign_in);
         passEt = findViewById(R.id.et_password_sign_in);
@@ -128,7 +125,6 @@ public class SignInActivity extends AppCompatActivity {
                 }
             }
         });
-
 
 
     }

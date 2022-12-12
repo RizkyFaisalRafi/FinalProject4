@@ -28,14 +28,13 @@ public class SearchActivity extends AppCompatActivity {
     private final List<Bus> list = new ArrayList<>();
     private BusAdapter busAdapter;
     private ActivitySearchBinding binding;
-    String from,to, distance, date, imgbus ;
+    String from, to, distance, date, imgbus;
     int pessenger;
 
     @SuppressLint({"SetTextI18n", "NotifyDataSetChanged"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_search);
 
         //view binding
         binding = ActivitySearchBinding.inflate(getLayoutInflater());
@@ -60,7 +59,7 @@ public class SearchActivity extends AppCompatActivity {
         distance = data.getString("jarak") + " km";
         imgbus = data.getString("imgBus");
 
-        binding.dateSearch.setText(date + " - " + pessenger +" pessengers" + " - " + distance);
+        binding.dateSearch.setText(date + " - " + pessenger + " pessengers" + " - " + distance);
         from = binding.fromSearch.getText().toString();
         to = binding.toSearch.getText().toString();
         getBus();
@@ -71,7 +70,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
     @SuppressLint("NotifyDataSetChanged")
-    private void getBus(){
+    private void getBus() {
         binding.simpleProgressBar.setVisibility(View.VISIBLE);
         if (from.equals("Probolinggo") && to.equals("Pasuruan")) {
             db.collection("Probolinggo - Pasuruan")
@@ -93,7 +92,7 @@ public class SearchActivity extends AppCompatActivity {
                             binding.simpleProgressBar.setVisibility(View.GONE);
                         }
                     }).addOnFailureListener(e -> Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show());
-        }else if (from.equals("Pasuruan") && to.equals("Surabaya")) {
+        } else if (from.equals("Pasuruan") && to.equals("Surabaya")) {
             db.collection("Pasuruan - Surabaya")
                     .get()
                     .addOnCompleteListener(task -> {
@@ -113,13 +112,13 @@ public class SearchActivity extends AppCompatActivity {
                             binding.simpleProgressBar.setVisibility(View.GONE);
                         }
                     }).addOnFailureListener(e -> Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show());
-        }else if (from.equals("Surabaya") && to.equals("Gresik")){
+        } else if (from.equals("Surabaya") && to.equals("Gresik")) {
             db.collection("Surabaya - Gresik")
                     .get()
                     .addOnCompleteListener(task -> {
                         list.clear();
-                        if (task.isSuccessful()){
-                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                                 //adapter
                                 Bus bus = new Bus(documentSnapshot.getString("nama_bus"), documentSnapshot.getString("naik"), documentSnapshot.getString("turun"),
                                         documentSnapshot.getString("harga"), documentSnapshot.getString("type"), documentSnapshot.getString("waktu"),
@@ -128,12 +127,12 @@ public class SearchActivity extends AppCompatActivity {
                             }
                             busAdapter.notifyDataSetChanged();
                             binding.simpleProgressBar.setVisibility(View.GONE);
-                        }else{
+                        } else {
                             Toast.makeText(this, "Data gagal diambil", Toast.LENGTH_SHORT).show();
                             binding.simpleProgressBar.setVisibility(View.GONE);
                         }
                     }).addOnFailureListener(e -> Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show());
-        }else {
+        } else {
             binding.simpleProgressBar.setVisibility(View.GONE);
             binding.busNotFound.setVisibility(View.VISIBLE);
         }
@@ -150,17 +149,12 @@ public class SearchActivity extends AppCompatActivity {
         detail.putExtra("time_start", bus.getTime_start());
         detail.putExtra("time_end", bus.getTime_end());
         detail.putExtra("pessenger", String.valueOf(pessenger));
-        detail.putExtra("from" , binding.fromSearch.getText().toString());
-        detail.putExtra("to" , binding.toSearch.getText().toString());
-        detail.putExtra("date" , date);
-        detail.putExtra("distance" , distance);
+        detail.putExtra("from", binding.fromSearch.getText().toString());
+        detail.putExtra("to", binding.toSearch.getText().toString());
+        detail.putExtra("date", date);
+        detail.putExtra("distance", distance);
         detail.putExtra("imgbus", imgbus);
         startActivity(detail);
     }
 
-//    private String getPrice(double price){
-//        Locale localeID = new Locale("in", "ID");
-//        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
-//        return formatRupiah.format(price);
-//    }
 }

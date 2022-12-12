@@ -64,8 +64,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
             to = itemView.findViewById(R.id.tv_ke_kota);
             passenger = itemView.findViewById(R.id.tv_jumlah_penumpang);
 
-
-
         }
     }
 }

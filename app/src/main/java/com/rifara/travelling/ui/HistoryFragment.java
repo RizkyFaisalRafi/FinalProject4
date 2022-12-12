@@ -30,7 +30,7 @@ public class HistoryFragment extends Fragment {
     ArrayList<User> userArrayList;
     HistoryAdapter historyAdapter;
     FirebaseFirestore firebaseFirestore;
-//    ProgressDialog progressDialog;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,12 +42,6 @@ public class HistoryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-//        progressDialog = new ProgressDialog(requireActivity());
-//        progressDialog.setCancelable(false);
-//        progressDialog.setMessage("Fetching Data...");
-//        progressDialog.show();
 
         recyclerView = view.findViewById(R.id.recycler_view_historyy);
         recyclerView.setHasFixedSize(true);
@@ -71,10 +65,6 @@ public class HistoryFragment extends Fragment {
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
                         if (error != null) {
-
-//                            if (progressDialog.isShowing())
-//                                progressDialog.dismiss();
-
                             Log.e("Firestore Error", error.getMessage());
                             return;
                         }
@@ -85,9 +75,6 @@ public class HistoryFragment extends Fragment {
                             }
 
                             historyAdapter.notifyDataSetChanged();
-
-//                            if (progressDialog.isShowing())
-//                                progressDialog.dismiss();
 
                         }
 

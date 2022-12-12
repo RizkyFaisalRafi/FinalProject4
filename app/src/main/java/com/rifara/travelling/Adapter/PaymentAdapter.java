@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.rifara.travelling.Model.Bus;
 import com.rifara.travelling.Model.Payment;
 import com.rifara.travelling.R;
 
@@ -23,7 +22,7 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.ListView
     private final List<Payment> list;
     private PaymentAdapter.OnItemClickCallback onItemClickCallback;
 
-    public void setOnItemClickCallback(PaymentAdapter.OnItemClickCallback onItemClickCallback){
+    public void setOnItemClickCallback(PaymentAdapter.OnItemClickCallback onItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback;
     }
 
@@ -35,7 +34,7 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.ListView
     @NonNull
     @Override
     public PaymentAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_payment, parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_payment, parent, false);
         return new ListViewHolder(itemView);
     }
 
@@ -43,17 +42,9 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.ListView
     public void onBindViewHolder(@NonNull PaymentAdapter.ListViewHolder holder, int position) {
         Payment payment = list.get(position);
         holder.method.setText(list.get(position).getMethod());
-        Glide.with(context).load(list.get(position).getIcon())
-                .error(R.drawable.ic_launcher_background)
-                .centerCrop()
-                .into(holder.icon);
+        Glide.with(context).load(list.get(position).getIcon()).error(R.drawable.ic_launcher_background).centerCrop().into(holder.icon);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onItemClickCallback.onItemClicked(list.get(holder.getAdapterPosition()));
-            }
-        });
+        holder.itemView.setOnClickListener(view -> onItemClickCallback.onItemClicked(list.get(holder.getAdapterPosition())));
 
     }
 

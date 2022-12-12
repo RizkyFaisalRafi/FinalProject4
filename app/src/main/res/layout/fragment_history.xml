@@ -26,17 +26,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!--            <ImageButton-->
-            <!--                android:id="@+id/btn_back"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:src="@drawable/ic_back_white"-->
-            <!--                android:layout_marginStart="8dp"-->
-            <!--                android:backgroundTint="#364767"-->
-            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="parent" />-->
-
             <TextView
                 android:id="@+id/tv_transaction"
                 android:layout_width="wrap_content"
@@ -54,16 +43,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:layout_marginBottom="50dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/detailOrderToolbar">-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_historyy"
         android:layout_width="match_parent"
@@ -76,17 +55,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailOrderToolbar"
         tools:listitem="@layout/item" />
-
-<!--    </ScrollView>-->
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recycler_view_history"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:padding="8dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/detailOrderToolbar"-->
-<!--        tools:listitem="@layout/item" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

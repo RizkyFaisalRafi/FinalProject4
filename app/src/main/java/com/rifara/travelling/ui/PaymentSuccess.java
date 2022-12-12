@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class PaymentSuccess extends AppCompatActivity {
     private ActivityPaymentSuccessBinding binding;
-    int price, totalprice, pessengers;
+    int totalprice;
 
     String nameBus, pessenger, from, to, date, type, seats;
     @Override
@@ -47,7 +47,6 @@ public class PaymentSuccess extends AppCompatActivity {
         pessenger = detail.getString("pessenger");
         seats =detail.getString("seat");
         totalprice = Integer.parseInt(detail.getString("totalPrice"));
-//        price= Integer.parseInt(detail.getString("totalPrice"));
 
         binding.tvNameBus.setText(nameBus);
         binding.tvDariKota.setText(from);
@@ -55,26 +54,10 @@ public class PaymentSuccess extends AppCompatActivity {
         binding.tvTgl.setText(date);
         binding.tvTicket.setText(type);
         binding.tvSeat.setText(seats);
-//        binding.tvTotalPrice.setText(totalPrice);
         binding.tvTotalPrice.setText(getPrice(totalprice));
         binding.tvPessenger.setText(pessenger);
 
     }
-
-
-//    protected void onResume() {
-//        super.onResume();
-//    }
-//    protected void onStart() {
-//        super.onStart();
-//        binding.tvNameBus.setText(nameBus);
-//        binding.tvDariKota.setText(from);
-//        binding.tvKeKota.setText(to);
-//        binding.tvTgl.setText(date);
-//        binding.tvTicket.setText(type);
-//        binding.tvTotalPrice.setText(getPrice(totalprice));
-//        binding.tvPessenger.setText(pessenger);
-//    }
 
     private String getPrice(double price){
         Locale localeID = new Locale("in", "ID");

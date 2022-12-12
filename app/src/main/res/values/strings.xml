@@ -29,8 +29,7 @@
     <string name="_10_11_2022">10/11/2022</string>
     <string name="name_bus">Name Bus</string>
     <string name="PaymentSucess">Transaction Success</string>
-    <string name="DescriptionPayment">Yes! enjoy your bill. Don’t
-Forget to check on your history</string>
+    <string name="DescriptionPayment">Yes! enjoy your bill. Don’t\nForget to check on your history</string>
 
     <!-- array spiner -->
     <string-array name="Kota">

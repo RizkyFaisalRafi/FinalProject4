@@ -4,7 +4,8 @@ public class User {
 
     String nameBus, date, from, to, pessenger;
 
-    public User(){}
+    public User() {
+    }
 
     public User(String nameBus, String date, String from, String to, String pessenger) {
         this.nameBus = nameBus;

@@ -66,12 +66,6 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
 
         binding.bookNow.setOnClickListener(this);
 
-        //binding.bookNow.setOnClickListener(this);
-        binding.bookNow.setOnClickListener(view1 -> {
-            Intent intent = new Intent(DetailPesananActivity.this, PaymentSuccess.class);
-            startActivity(intent);
-        });
-
         binding.btChooseSeat.setOnClickListener(view12 -> {
             Intent intent = new Intent(DetailPesananActivity.this, SeatActivity.class);
             intent.putExtra("total_pessenger", pessenger);
@@ -83,7 +77,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         });
         binding.imgBack.setOnClickListener(view1 -> {
             startActivity(new Intent(DetailPesananActivity.this, SearchActivity.class));
-//            preferences.getEditor().clear().apply();
+            preferences.getEditor().clear().apply();
         });
         getImageBus();
     }
@@ -103,19 +97,15 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
 
         iconPayment = preferences.getSharedPreferences().getString("iconPayment", null);
         if (iconPayment != null) {
-            Glide.with(DetailPesananActivity.this)
-                    .load(iconPayment)
-                    .error(R.drawable.ic_launcher_background)
-                    .centerCrop()
-                    .into(binding.iconPayment);
+            Glide.with(DetailPesananActivity.this).load(iconPayment).error(R.drawable.ic_launcher_background).centerCrop().into(binding.iconPayment);
         }
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        preferences.getEditor().clear().apply();
-//    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        preferences.getEditor().clear().apply();
+    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -133,55 +123,18 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         binding.tvClass.setText(type);
         binding.totalPrice.setText(getPrice(totalprice));
         binding.pessengersDetail.setText(pessenger + " Pessengers");
-//        preferences.getEditor().clear().apply();
+
     }
 
     @Override
     public void onClick(View view) {
-
-        Map<String, Object> detail = new HashMap<>();
-        detail.put("nameBus", nameBus);
-        detail.put("from", from);
-        detail.put("to", to);
-        detail.put("pessenger", pessenger);
-        detail.put("pickUp", pickUp);
-        detail.put("dropOff", dropOff);
-        detail.put("timeStart", timeStart);
-        detail.put("timeEnd", timeEnd);
-        detail.put("longTime", longTime);
-        detail.put("date", date);
-        detail.put("type", type);
-        detail.put("distance", distance);
-        detail.put("price", String.valueOf(price));
-        detail.put("totalPrice", String.valueOf(totalprice));
-        detail.put("kodeSeat", seats);
-
-        // Add a new document with a generated ID
-        db.collection("Booking")
-                .add(detail)
-                .addOnSuccessListener(documentReference -> {
-                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                    Toast.makeText(DetailPesananActivity.this, "Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(DetailPesananActivity.this,PaymentSuccess.class);
-                    intent.putExtra("namabus",binding.nameBusDetail.getText().toString());
-                    intent.putExtra("from",binding.fromDetail.getText().toString());
-                    intent.putExtra("to",binding.toDetail.getText().toString());
-                    intent.putExtra("seat",binding.tvSeat.getText().toString());
-                    intent.putExtra("pessenger",binding.pessengersDetail.getText().toString());
-                    intent.putExtra("ticket",binding.tvClass.getText().toString());
-                    intent.putExtra("totalPrice",String.valueOf(totalprice));
-                    intent.putExtra("tgl",binding.dateDetail.getText().toString());
-                    startActivity(intent);
-                    preferences.getEditor().clear().apply();
-                })
-                .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
 
         if (binding.tvPayment.getText().toString().isEmpty()) {
             Toast.makeText(this, "Choose Payment Method", Toast.LENGTH_SHORT).show();
         } else if (binding.tvSeat.getText().toString().isEmpty()) {
             Toast.makeText(this, "Choose Payment Seats", Toast.LENGTH_SHORT).show();
         } else {
-//            Map<String, Object> detail = new HashMap<>();
+            Map<String, Object> detail = new HashMap<>();
             detail.put("nameBus", nameBus);
             detail.put("from", from);
             detail.put("to", to);
@@ -199,26 +152,30 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
             detail.put("kodeSeat", seats);
             detail.put("methodPayment", methodPayment);
 
-// Add a new document with a generated ID
-            db.collection("Booking")
-                    .add(detail)
-                    .addOnSuccessListener(documentReference -> {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        Toast.makeText(DetailPesananActivity.this, "Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
 
-                    })
-                    .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
-            preferences.getEditor().clear().apply();
+            // Add a new document with a generated ID
+            db.collection("Booking").add(detail).addOnSuccessListener(documentReference -> {
+                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                Toast.makeText(DetailPesananActivity.this, "Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(DetailPesananActivity.this, PaymentSuccess.class);
+                intent.putExtra("namabus", binding.nameBusDetail.getText().toString());
+                intent.putExtra("from", binding.fromDetail.getText().toString());
+                intent.putExtra("to", binding.toDetail.getText().toString());
+                intent.putExtra("seat", binding.tvSeat.getText().toString());
+                intent.putExtra("pessenger", binding.pessengersDetail.getText().toString());
+                intent.putExtra("ticket", binding.tvClass.getText().toString());
+                intent.putExtra("totalPrice", String.valueOf(totalprice));
+                intent.putExtra("tgl", binding.dateDetail.getText().toString());
+                startActivity(intent);
+                preferences.getEditor().clear().apply();
+            }).addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
+
         }
 
     }
 
     private void getImageBus() {
-        Glide.with(DetailPesananActivity.this)
-                .load(imgbus)
-                .error(R.drawable.ic_launcher_background)
-                .centerCrop()
-                .into(binding.imgBus);
+        Glide.with(DetailPesananActivity.this).load(imgbus).error(R.drawable.ic_launcher_background).centerCrop().into(binding.imgBus);
     }
 
     private String getPrice(double price) {

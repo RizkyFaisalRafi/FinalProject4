@@ -50,10 +50,6 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
         holder.start.setText(list.get(position).getTime_start());
         holder.end.setText(list.get(position).getTime_end());
 
-//        holder.bookNow.setOnClickListener(view -> {
-//            Intent intent = new Intent(context.getApplicationContext(), DetailPesananActivity.class);
-//            context.startActivity(intent);
-//        });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +65,6 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
 
     public class ListViewHolder extends RecyclerView.ViewHolder {
         TextView namaBus, harga, naik, turun, waktu, type, start, end;
-        Button bookNow;
 
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);

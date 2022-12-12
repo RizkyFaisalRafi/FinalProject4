@@ -2,19 +2,12 @@ package com.rifara.travelling.ui;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
-
-import android.widget.RadioButton;
-
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,8 +34,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -77,7 +69,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding.date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                datePickerDialog = new DatePickerDialog(getActivity(), setListener, year,month,day);
+                datePickerDialog = new DatePickerDialog(getActivity(), setListener, year, month, day);
                 datePickerDialog.show();
             }
         });
@@ -99,23 +91,23 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) { //penumpang
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.plus:
-                penumpang ++;
+                penumpang++;
                 binding.pessengers.setText(String.valueOf(penumpang));
                 break;
             case R.id.minus:
-                penumpang --;
+                penumpang--;
                 binding.pessengers.setText(String.valueOf(penumpang));
                 break;
             case R.id.btSearchBus:
-                if(binding.from.getSelectedItem().toString().equals(binding.to.getSelectedItem().toString())){
+                if (binding.from.getSelectedItem().toString().equals(binding.to.getSelectedItem().toString())) {
                     Toast.makeText(getActivity(), "lengkapi dulu", Toast.LENGTH_SHORT).show();
-                }else if(binding.date == null){
+                } else if (binding.date == null) {
                     Toast.makeText(getActivity(), "Plese select your date", Toast.LENGTH_SHORT).show();
-                }else if(binding.pessengers == null){
+                } else if (binding.pessengers == null) {
                     Toast.makeText(getActivity(), "Plese select your pessengers", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     checkPriceAndBus();
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
                     intent.putExtra("from", binding.from.getSelectedItem().toString());
@@ -134,53 +126,36 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private void checkPriceAndBus() {
 
-        if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Pasuruan")
-                || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
+        if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Pasuruan") || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             Toast.makeText(getActivity(), "sukses", Toast.LENGTH_SHORT).show();
             jarak = 87.8;
             linkBus = "https://4.bp.blogspot.com/-WbGOH6vIl-M/V5letupc-BI/AAAAAAAABDM/r0jqkLXxYfM7bFNuKQS0jV52s-BL2YqGACLcB/s1600/akas%2BI.JPG";
-        }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Surabaya")
-                || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
+        } else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Surabaya") || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             jarak = 149;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Malang")
-                || binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
+        } else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Malang") || binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             jarak = 124;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Gresik")
-                || binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
+        } else if (binding.from.getSelectedItem().toString().equals("Probolinggo") && binding.to.getSelectedItem().toString().equals("Gresik") || binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Probolinggo")) {
             jarak = 160;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Surabaya")
-                || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Pasuruan")) {
+        } else if (binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Surabaya") || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Pasuruan")) {
             jarak = 66.90;
             linkBus = "https://jadwalbis.com/images/bus_logo/61547445_688326811623726_5558866464863158272_n.jpg";
-        }else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Surabaya")
-                || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Malang")) {
+        } else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Surabaya") || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Malang")) {
             jarak = 125;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Surabaya")
-                || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Gresik")) {
+        } else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Surabaya") || binding.from.getSelectedItem().toString().equals("Surabaya") && binding.to.getSelectedItem().toString().equals("Gresik")) {
             jarak = 18;
             linkBus = "https://ik.imagekit.io/tvlk/image/imageResource/2018/12/05/1544004740153-50b7565a2aeb2f73e30f979ac9b93644.jpeg?tr=q-75";
-        }else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Pasuruan")
-                || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Malang")) {
+        } else if (binding.from.getSelectedItem().toString().equals("Malang") && binding.to.getSelectedItem().toString().equals("Pasuruan") || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Malang")) {
             jarak = 55;
             linkBus = "";
-        }else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Pasuruan")
-                || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Gresik")) {
+        } else if (binding.from.getSelectedItem().toString().equals("Gresik") && binding.to.getSelectedItem().toString().equals("Pasuruan") || binding.from.getSelectedItem().toString().equals("Pasuruan") && binding.to.getSelectedItem().toString().equals("Gresik")) {
             jarak = 78;
             linkBus = "";
         }
 
     }
 
-
-//
-//    public void checkButton(View view) {
-//        int radioId = binding.rgClass.getCheckedRadioButtonId();
-//        rb = (RadioButton) view.findViewById(radioId);
-//        String classBus = rb.getText().toString();
-//        Toast.makeText(getActivity(), "ini" +classBus, Toast.LENGTH_SHORT).show();
-//    }
 }
