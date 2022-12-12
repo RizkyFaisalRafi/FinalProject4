@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,6 +26,7 @@ import java.util.Map;
 public class PaymentSuccess extends AppCompatActivity {
     private ActivityPaymentSuccessBinding binding;
     int totalprice;
+    float myRating = 0;
 
     String nameBus, pessenger, from, to, date, type, seats;
     @Override
@@ -33,6 +35,38 @@ public class PaymentSuccess extends AppCompatActivity {
         binding = ActivityPaymentSuccessBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        binding.ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+
+                int rating = (int) v;
+                String message = null;
+
+                myRating = ratingBar.getRating();
+
+                switch (rating){
+                    case 1:
+                        message = "Sorry to hear that :(";
+                        break;
+                    case 2:
+                        message = "You always accept suggestions";
+                        break;
+                    case 3:
+                        message = "Good enough!";
+                        break;
+                    case 4:
+                        message = "Great!, thank you";
+                        break;
+                    case 5:
+                        message = "Awesome!, thank you";
+                        break;
+                }
+
+                Toast.makeText(PaymentSuccess.this, message, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         binding.buttonHome.setOnClickListener(view1 -> {
             startActivity(new Intent(PaymentSuccess.this , MainActivity.class));

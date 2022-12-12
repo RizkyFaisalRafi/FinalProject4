@@ -131,7 +131,6 @@
                 android:id="@+id/penumpang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_centerVertical="true"
                 android:layout_marginStart="6dp"
                 android:layout_toEndOf="@+id/tv_jumlah_penumpang"
@@ -139,30 +138,19 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/nilai_pesanan"
+            <TextView
+                android:id="@+id/harga"
                 android:layout_width="wrap_content"
-                android:layout_marginEnd="16dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="Nilai"
-                />
+                android:layout_gravity="center"
+                android:layout_marginEnd="16dp"
+                android:text="Harga"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
-
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_link_github"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:text="link_github"-->
-<!--            card_view:layout_constraintBottom_toBottomOf="parent"-->
-<!--            card_view:layout_constraintEnd_toEndOf="@+id/tv_username"-->
-<!--            card_view:layout_constraintStart_toStartOf="@+id/tv_name_bus"-->
-<!--            card_view:layout_constraintTop_toBottomOf="@+id/tv_name_bus"-->
-<!--            card_view:layout_constraintVertical_bias="0.0" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

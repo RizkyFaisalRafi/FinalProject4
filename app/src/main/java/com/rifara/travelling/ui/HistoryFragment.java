@@ -1,17 +1,18 @@
 package com.rifara.travelling.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -30,7 +31,7 @@ public class HistoryFragment extends Fragment {
     ArrayList<User> userArrayList;
     HistoryAdapter historyAdapter;
     FirebaseFirestore firebaseFirestore;
-
+    Button nilai;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,6 +59,14 @@ public class HistoryFragment extends Fragment {
     }
 
     private void EventChangeListener() {
+
+//        nilai.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getActivity(), RatingActivity.class));
+//            }
+//        });
+
 
         firebaseFirestore.collection("Booking")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
