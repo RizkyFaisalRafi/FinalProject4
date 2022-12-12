@@ -138,20 +138,19 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
                 .addOnSuccessListener(documentReference -> {
                     Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                     Toast.makeText(DetailPesananActivity.this, "Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
-
+                    Intent intent = new Intent(DetailPesananActivity.this,PaymentSuccess.class);
+                    intent.putExtra("namabus",binding.nameBusDetail.getText().toString());
+                    intent.putExtra("from",binding.fromDetail.getText().toString());
+                    intent.putExtra("to",binding.toDetail.getText().toString());
+                    intent.putExtra("seat",binding.tvSeat.getText().toString());
+                    intent.putExtra("pessenger",binding.pessengersDetail.getText().toString());
+                    intent.putExtra("ticket",binding.tvClass.getText().toString());
+                    intent.putExtra("totalPrice",String.valueOf(totalprice));
+                    intent.putExtra("tgl",binding.dateDetail.getText().toString());
+                    startActivity(intent);
                     preferences.getEditor().clear().apply();
                 })
                 .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
-        Intent intent = new Intent(DetailPesananActivity.this,PaymentSuccess.class);
-        intent.putExtra("namabus",binding.nameBusDetail.getText().toString());
-        intent.putExtra("from",binding.fromDetail.getText().toString());
-        intent.putExtra("to",binding.toDetail.getText().toString());
-        intent.putExtra("seat",binding.tvSeat.getText());
-        intent.putExtra("pessenger",binding.pessengersDetail.getText().toString());
-        intent.putExtra("ticket",binding.tvClass.getText().toString());
-        intent.putExtra("totalPrice",binding.totalPrice.getText().toString());
-        intent.putExtra("tgl",binding.dateDetail.getText().toString());
-        startActivity(intent);
     }
 
     private void getImageBus(){
