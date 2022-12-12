@@ -162,7 +162,6 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
 
                     })
                     .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
-            startActivity(new Intent(DetailPesananActivity.this, MainActivity.class ));
             preferences.getEditor().clear().apply();
         }
     }
