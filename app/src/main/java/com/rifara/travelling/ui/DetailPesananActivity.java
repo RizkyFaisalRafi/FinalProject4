@@ -46,6 +46,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
 
         preferences = new Preferences(this);
         Bundle detail = getIntent().getExtras();
+
         nameBus = detail.getString("nameBus");
         from = detail.getString("from");
         to = detail.getString("to");
@@ -65,7 +66,11 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         pessengers = Integer.parseInt(pessenger);
         totalprice = price * pessengers;
 
-        binding.bookNow.setOnClickListener(this);
+        //binding.bookNow.setOnClickListener(this);
+        binding.bookNow.setOnClickListener(view1 -> {
+            Intent intent = new Intent(DetailPesananActivity.this,PaymentSuccess.class);
+            startActivity(intent);
+        });
         binding.btChooseSeat.setOnClickListener(view12 -> {
             Intent intent = new Intent(DetailPesananActivity.this, SeatActivity.class);
             intent.putExtra("total_pessenger", pessenger);
@@ -137,6 +142,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
                 .addOnSuccessListener(documentReference -> {
                     Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                     Toast.makeText(DetailPesananActivity.this, "Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
+
                     preferences.getEditor().clear().apply();
                 })
                 .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
