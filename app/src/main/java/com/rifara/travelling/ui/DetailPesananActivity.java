@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.rifara.travelling.MainActivity;
 import com.rifara.travelling.Preferences;
 import com.rifara.travelling.R;
 import com.rifara.travelling.SeatActivity;
@@ -73,7 +74,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         });
         binding.imgBack.setOnClickListener(view1 -> {
             startActivity(new Intent(DetailPesananActivity.this, SearchActivity.class));
-            preferences.getEditor().clear().apply();
+//            preferences.getEditor().clear().apply();
         });
         getImageBus();
   }
@@ -131,7 +132,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         detail.put("totalPrice", String.valueOf(totalprice));
         detail.put("kodeSeat", seats);
 
-// Add a new document with a generated ID
+    // Add a new document with a generated ID
         db.collection("Booking")
                 .add(detail)
                 .addOnSuccessListener(documentReference -> {
