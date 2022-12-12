@@ -22,6 +22,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.rifara.travelling.MainActivity;
 import com.rifara.travelling.R;
 import com.rifara.travelling.Utility;
@@ -72,6 +73,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             tvEmail.setText(googleSignInAccount.getEmail()); // Menampilkan data di profile
         }
 
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            tvEmail.setText(currentUser.getEmail()); // Menampilkan data di profile
+        }
 
     }
 
@@ -99,7 +104,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
 
     void signOut() {
-//         Google
+//      Google
         googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(Task<Void> task) {

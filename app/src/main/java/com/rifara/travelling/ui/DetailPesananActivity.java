@@ -120,21 +120,21 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View view) {
         Map<String, Object> detail = new HashMap<>();
-        detail.put("name bus", nameBus );
+        detail.put("nameBus", nameBus );
         detail.put("from", from);
         detail.put("to", to);
         detail.put("pessenger", pessenger);
-        detail.put("pick up", pickUp);
-        detail.put("drop off", dropOff);
-        detail.put("time start", timeStart);
-        detail.put("time end", timeEnd);
-        detail.put("long time", longTime);
+        detail.put("pickUp", pickUp);
+        detail.put("dropOff", dropOff);
+        detail.put("timeStart", timeStart);
+        detail.put("timeEnd", timeEnd);
+        detail.put("longTime", longTime);
         detail.put("date", date);
         detail.put("type", type);
         detail.put("distance", distance);
         detail.put("price", String.valueOf(price));
-        detail.put("total price", String.valueOf(totalprice));
-        detail.put("kode seat", seats);
+        detail.put("totalPrice", String.valueOf(totalprice));
+        detail.put("kodeSeat", seats);
 
 // Add a new document with a generated ID
         db.collection("Booking")
@@ -142,6 +142,8 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
                 .addOnSuccessListener(documentReference -> {
                     Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                     Toast.makeText(DetailPesananActivity.this, "Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
+
+                    preferences.getEditor().clear().apply();
                 })
                 .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
     }
