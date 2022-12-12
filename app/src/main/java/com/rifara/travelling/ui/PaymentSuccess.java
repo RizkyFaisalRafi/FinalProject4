@@ -20,69 +20,36 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class PaymentSuccess extends AppCompatActivity implements View.OnClickListener {
+public class PaymentSuccess extends AppCompatActivity {
     private ActivityPaymentSuccessBinding binding;
     int price, totalprice, pessengers;
 
-    private Preferences preferences;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String nameBus, pessenger, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance, seats;
+    String nameBus, pessenger, from, to, date, type, seats;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment_success);
         binding = ActivityPaymentSuccessBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
-        preferences = new Preferences(this);
         Bundle detail = getIntent().getExtras();
 
-        nameBus = detail.getString("nameBus");
+        nameBus = detail.getString("namebus");
         from = detail.getString("from");
         to = detail.getString("to");
-        pickUp = detail.getString("pick_up");
-        dropOff = detail.getString("drop_off");
         date = detail.getString("date");
-        type = detail.getString("type");
+        type = detail.getString("ticket");
         pessenger = detail.getString("pessenger");
-        price = Integer.parseInt(detail.getString("price"));
-
-
-        pessengers = Integer.parseInt(pessenger);
-        totalprice = price * pessengers;
+        seats =detail.getString("seat");
+        price= Integer.parseInt(detail.getString("totalPrice"));
 
         
 
     }
 
-    @Override
-    public void onClick(View view) {
-        Map<String, Object> detail = new HashMap<>();
-        detail.put("name bus", nameBus );
-        detail.put("from", from);
-        detail.put("to", to);
-        detail.put("pessenger", pessenger);
-        detail.put("pick up", pickUp);
-        detail.put("date", date);
-        detail.put("type", type);
-        detail.put("price", String.valueOf(price));
-        detail.put("total price", String.valueOf(totalprice));
-        detail.put("kode seat", seats);
-        db.collection("Booking")
-                .add(detail)
-                .addOnSuccessListener(documentReference -> {
-                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                    Toast.makeText(PaymentSuccess.this, "Berhasil ditambahkan", Toast.LENGTH_SHORT).show();
-                })
-                .addOnFailureListener(e -> Log.w(TAG, "Error adding document", e));
-    }
+
     protected void onResume() {
         super.onResume();
-        seats = preferences.getSharedPreferences().getString("kodeseat", null);
-        if (seats != null){
-            binding.tvSeat.setText(seats);
-        }
     }
     protected void onStart() {
         super.onStart();
