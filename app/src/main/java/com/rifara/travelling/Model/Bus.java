@@ -30,7 +30,7 @@ public class Bus {
         this.time_end = time_end;
     }
 
-    public Bus(){
+    public Bus() {
 
     }
 

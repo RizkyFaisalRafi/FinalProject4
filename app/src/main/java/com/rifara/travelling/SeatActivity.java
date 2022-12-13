@@ -18,11 +18,9 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
     private Preferences preferences;
     int totalClick2 = 0;
 
-    int seat, seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat10, seat11, seat12, seat13, seat14, seat15, seat16, seat17,
-            seat18, seat19, seat20, seat21, seat22, seat23, seat24, seat25, seat26, seat27, seat28, seat29, seat30, seat31;
+    int seat, seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat10, seat11, seat12, seat13, seat14, seat15, seat16, seat17, seat18, seat19, seat20, seat21, seat22, seat23, seat24, seat25, seat26, seat27, seat28, seat29, seat30, seat31;
 
-    String kode_seat = "", kdseat1 = "", kdseat2 = "", kdseat3 = "", kdseat4 = "", kdseat5 = "", kdseat6 = "", kdseat7 = "", kdseat8 = "", kdseat9 = "", kdseat10 = "", kdseat11 = "", kdseat12 = "", kdseat13 = "", kdseat14 = "", kdseat15 = "", kdseat16 = "", kdseat17 = "",
-            kdseat18 = "", kdseat19 = "", kdseat20 = "", kdseat21 = "", kdseat22 = "", kdseat23 = "", kdseat24 = "", kdseat25 = "", kdseat26 = "", kdseat27 = "", kdseat28 = "", kdseat29 = "", kdseat30 = "", kdseat31 = "";
+    String kode_seat = "", kdseat1 = "", kdseat2 = "", kdseat3 = "", kdseat4 = "", kdseat5 = "", kdseat6 = "", kdseat7 = "", kdseat8 = "", kdseat9 = "", kdseat10 = "", kdseat11 = "", kdseat12 = "", kdseat13 = "", kdseat14 = "", kdseat15 = "", kdseat16 = "", kdseat17 = "", kdseat18 = "", kdseat19 = "", kdseat20 = "", kdseat21 = "", kdseat22 = "", kdseat23 = "", kdseat24 = "", kdseat25 = "", kdseat26 = "", kdseat27 = "", kdseat28 = "", kdseat29 = "", kdseat30 = "", kdseat31 = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -455,12 +453,9 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
         }
-        seat = seat1 + seat2 + seat3 + seat4 + seat5 + seat6 + seat7 + seat8 + seat9 + seat10 + seat11 + seat12 + seat13 + seat14 + seat15 + seat16 + seat17
-                + seat18 + seat19 + seat20 + seat21 + seat22 + seat23 + seat24 + seat25 + seat26 + seat27 + seat28 + seat29 + seat30 + seat31;
+        seat = seat1 + seat2 + seat3 + seat4 + seat5 + seat6 + seat7 + seat8 + seat9 + seat10 + seat11 + seat12 + seat13 + seat14 + seat15 + seat16 + seat17 + seat18 + seat19 + seat20 + seat21 + seat22 + seat23 + seat24 + seat25 + seat26 + seat27 + seat28 + seat29 + seat30 + seat31;
 
-        kode_seat = kdseat1 + kdseat2 + kdseat3 + kdseat4 + kdseat5 + kdseat6 + kdseat7 + kdseat8 + kdseat9 + kdseat10 + kdseat11 + kdseat12 +
-                kdseat13 + kdseat14 + kdseat15 + kdseat16 + kdseat17 + kdseat18 + kdseat19 + kdseat20 + kdseat21 + kdseat22 + kdseat23 + kdseat24 +
-                kdseat25 + kdseat26 + kdseat27 + kdseat28 + kdseat29 + kdseat30 + kdseat31;
+        kode_seat = kdseat1 + kdseat2 + kdseat3 + kdseat4 + kdseat5 + kdseat6 + kdseat7 + kdseat8 + kdseat9 + kdseat10 + kdseat11 + kdseat12 + kdseat13 + kdseat14 + kdseat15 + kdseat16 + kdseat17 + kdseat18 + kdseat19 + kdseat20 + kdseat21 + kdseat22 + kdseat23 + kdseat24 + kdseat25 + kdseat26 + kdseat27 + kdseat28 + kdseat29 + kdseat30 + kdseat31;
 
         binding.totalseat.setText(kode_seat);
     }

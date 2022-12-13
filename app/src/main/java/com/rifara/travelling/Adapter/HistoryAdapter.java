@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rifara.travelling.R;
-import com.rifara.travelling.User;
+import com.rifara.travelling.Model.User;
 
 import java.util.ArrayList;
 
@@ -52,7 +52,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
         return userArrayList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView nameBus, date, from, to, passenger, totalPrice;
 

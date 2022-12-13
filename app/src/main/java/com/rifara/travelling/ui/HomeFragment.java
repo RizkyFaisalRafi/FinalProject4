@@ -1,5 +1,6 @@
 package com.rifara.travelling.ui;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -48,47 +48,42 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         binding.btSearchBus.setOnClickListener(this);
         binding.notif.setOnClickListener(this);
 
-// Spinner from
+        // Spinner from
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Kota, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.from.setAdapter(adapter);
-//Spinner To
+        // Spinner To
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getActivity(), R.array.Tujuan, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.to.setAdapter(adapter1);
 
-//count penumpang
+        // count penumpang
         binding.plus.setOnClickListener(this);
         binding.minus.setOnClickListener(this);
 
-// select Date
+        // select Date
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
-        binding.date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                datePickerDialog = new DatePickerDialog(getActivity(), setListener, year, month, day);
-                datePickerDialog.show();
-            }
+        binding.date.setOnClickListener(view1 -> {
+            datePickerDialog = new DatePickerDialog(getActivity(), setListener, year, month, day);
+            datePickerDialog.show();
         });
-        setListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.YEAR, year);
-                calendar.set(Calendar.MONTH, month);
-                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        setListener = (datePicker, year1, month1, dayOfMonth) -> {
+            Calendar calendar1 = Calendar.getInstance();
+            calendar1.set(Calendar.YEAR, year1);
+            calendar1.set(Calendar.MONTH, month1);
+            calendar1.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String pickerDateString = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
-                binding.date.setText(pickerDateString);
+            String pickerDateString = DateFormat.getDateInstance(DateFormat.FULL).format(calendar1.getTime());
+            binding.date.setText(pickerDateString);
 
-            }
         };
 
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) { //penumpang
         switch (view.getId()) {

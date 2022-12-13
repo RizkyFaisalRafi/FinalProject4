@@ -3,7 +3,7 @@ package com.rifara.travelling.Model;
 public class Payment {
     private String icon;
 
-    public Payment(){
+    public Payment() {
 
     }
 

@@ -42,7 +42,7 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(view);
 
         RecyclerView recyclerView = findViewById(R.id.rvSearch);
-        busAdapter = new BusAdapter(SearchActivity.this, list);
+        busAdapter = new BusAdapter(list);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         RecyclerView.ItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -64,7 +64,7 @@ public class SearchActivity extends AppCompatActivity {
         to = binding.toSearch.getText().toString();
         getBus();
 
-        busAdapter.setOnItemClickCallback(data1 -> showSelectedBus(data1));
+        busAdapter.setOnItemClickCallback(this::showSelectedBus);
         binding.back.setOnClickListener(view1 -> startActivity(new Intent(SearchActivity.this, MainActivity.class)));
     }
 
@@ -73,65 +73,53 @@ public class SearchActivity extends AppCompatActivity {
     private void getBus() {
         binding.simpleProgressBar.setVisibility(View.VISIBLE);
         if (from.equals("Probolinggo") && to.equals("Pasuruan")) {
-            db.collection("Probolinggo - Pasuruan")
-                    .get()
-                    .addOnCompleteListener(task -> {
-                        list.clear();
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                                //adapter
-                                Bus bus = new Bus(documentSnapshot.getString("nama_bus"), documentSnapshot.getString("naik"), documentSnapshot.getString("turun"),
-                                        documentSnapshot.getString("harga"), documentSnapshot.getString("type"), documentSnapshot.getString("waktu"),
-                                        documentSnapshot.getString("start"), documentSnapshot.getString("end"));
-                                list.add(bus);
-                            }
-                            busAdapter.notifyDataSetChanged();
-                            binding.simpleProgressBar.setVisibility(View.GONE);
-                        } else {
-                            Toast.makeText(this, "Data gagal diambil", Toast.LENGTH_SHORT).show();
-                            binding.simpleProgressBar.setVisibility(View.GONE);
-                        }
-                    }).addOnFailureListener(e -> Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show());
+            db.collection("Probolinggo - Pasuruan").get().addOnCompleteListener(task -> {
+                list.clear();
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                        //adapter
+                        Bus bus = new Bus(documentSnapshot.getString("nama_bus"), documentSnapshot.getString("naik"), documentSnapshot.getString("turun"), documentSnapshot.getString("harga"), documentSnapshot.getString("type"), documentSnapshot.getString("waktu"), documentSnapshot.getString("start"), documentSnapshot.getString("end"));
+                        list.add(bus);
+                    }
+                    busAdapter.notifyDataSetChanged();
+                    binding.simpleProgressBar.setVisibility(View.GONE);
+                } else {
+                    Toast.makeText(this, "Data gagal diambil", Toast.LENGTH_SHORT).show();
+                    binding.simpleProgressBar.setVisibility(View.GONE);
+                }
+            }).addOnFailureListener(e -> Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show());
         } else if (from.equals("Pasuruan") && to.equals("Surabaya")) {
-            db.collection("Pasuruan - Surabaya")
-                    .get()
-                    .addOnCompleteListener(task -> {
-                        list.clear();
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                                //adapter
-                                Bus bus = new Bus(documentSnapshot.getString("nama_bus"), documentSnapshot.getString("naik"), documentSnapshot.getString("turun"),
-                                        documentSnapshot.getString("harga"), documentSnapshot.getString("type"), documentSnapshot.getString("waktu"),
-                                        documentSnapshot.getString("start"), documentSnapshot.getString("end"));
-                                list.add(bus);
-                            }
-                            busAdapter.notifyDataSetChanged();
-                            binding.simpleProgressBar.setVisibility(View.GONE);
-                        } else {
-                            Toast.makeText(this, "Data gagal diambil", Toast.LENGTH_SHORT).show();
-                            binding.simpleProgressBar.setVisibility(View.GONE);
-                        }
-                    }).addOnFailureListener(e -> Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show());
+            db.collection("Pasuruan - Surabaya").get().addOnCompleteListener(task -> {
+                list.clear();
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                        //adapter
+                        Bus bus = new Bus(documentSnapshot.getString("nama_bus"), documentSnapshot.getString("naik"), documentSnapshot.getString("turun"), documentSnapshot.getString("harga"), documentSnapshot.getString("type"), documentSnapshot.getString("waktu"), documentSnapshot.getString("start"), documentSnapshot.getString("end"));
+                        list.add(bus);
+                    }
+                    busAdapter.notifyDataSetChanged();
+                    binding.simpleProgressBar.setVisibility(View.GONE);
+                } else {
+                    Toast.makeText(this, "Data gagal diambil", Toast.LENGTH_SHORT).show();
+                    binding.simpleProgressBar.setVisibility(View.GONE);
+                }
+            }).addOnFailureListener(e -> Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show());
         } else if (from.equals("Surabaya") && to.equals("Gresik")) {
-            db.collection("Surabaya - Gresik")
-                    .get()
-                    .addOnCompleteListener(task -> {
-                        list.clear();
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                                //adapter
-                                Bus bus = new Bus(documentSnapshot.getString("nama_bus"), documentSnapshot.getString("naik"), documentSnapshot.getString("turun"),
-                                        documentSnapshot.getString("harga"), documentSnapshot.getString("type"), documentSnapshot.getString("waktu"),
-                                        documentSnapshot.getString("start"), documentSnapshot.getString("end"));
-                                list.add(bus);
-                            }
-                            busAdapter.notifyDataSetChanged();
-                            binding.simpleProgressBar.setVisibility(View.GONE);
-                        } else {
-                            Toast.makeText(this, "Data gagal diambil", Toast.LENGTH_SHORT).show();
-                            binding.simpleProgressBar.setVisibility(View.GONE);
-                        }
-                    }).addOnFailureListener(e -> Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show());
+            db.collection("Surabaya - Gresik").get().addOnCompleteListener(task -> {
+                list.clear();
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                        //adapter
+                        Bus bus = new Bus(documentSnapshot.getString("nama_bus"), documentSnapshot.getString("naik"), documentSnapshot.getString("turun"), documentSnapshot.getString("harga"), documentSnapshot.getString("type"), documentSnapshot.getString("waktu"), documentSnapshot.getString("start"), documentSnapshot.getString("end"));
+                        list.add(bus);
+                    }
+                    busAdapter.notifyDataSetChanged();
+                    binding.simpleProgressBar.setVisibility(View.GONE);
+                } else {
+                    Toast.makeText(this, "Data gagal diambil", Toast.LENGTH_SHORT).show();
+                    binding.simpleProgressBar.setVisibility(View.GONE);
+                }
+            }).addOnFailureListener(e -> Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show());
         } else {
             binding.simpleProgressBar.setVisibility(View.GONE);
             binding.busNotFound.setVisibility(View.VISIBLE);

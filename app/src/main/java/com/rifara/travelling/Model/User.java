@@ -1,4 +1,4 @@
-package com.rifara.travelling;
+package com.rifara.travelling.Model;
 
 public class User {
 

@@ -11,6 +11,7 @@ import com.rifara.travelling.databinding.ActivityNotificationBinding;
 
 public class NotificationActivity extends AppCompatActivity {
     ActivityNotificationBinding binding;
+
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -18,8 +19,6 @@ public class NotificationActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        binding.imgBackNotif.setOnClickListener(view1 -> {
-            startActivity(new Intent(NotificationActivity.this, MainActivity.class));
-        });
+        binding.imgBackNotif.setOnClickListener(view1 -> startActivity(new Intent(NotificationActivity.this, MainActivity.class)));
     }
 }

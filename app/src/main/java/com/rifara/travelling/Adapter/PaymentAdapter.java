@@ -40,7 +40,6 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.ListView
 
     @Override
     public void onBindViewHolder(@NonNull PaymentAdapter.ListViewHolder holder, int position) {
-        Payment payment = list.get(position);
         holder.method.setText(list.get(position).getMethod());
         Glide.with(context).load(list.get(position).getIcon()).error(R.drawable.ic_launcher_background).centerCrop().into(holder.icon);
 
@@ -53,7 +52,7 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.ListView
         return list.size();
     }
 
-    public class ListViewHolder extends RecyclerView.ViewHolder {
+    public static class ListViewHolder extends RecyclerView.ViewHolder {
         TextView method;
         ImageView icon;
 

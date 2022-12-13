@@ -10,7 +10,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -18,13 +17,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rifara.travelling.MainActivity;
 import com.rifara.travelling.R;
 import com.rifara.travelling.Utility;
+
+import java.util.Objects;
 
 
 public class SignInActivity extends AppCompatActivity {
@@ -104,25 +103,22 @@ public class SignInActivity extends AppCompatActivity {
 
     void signInAccountInfirebase(String email, String password) {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                changeInProgress(false);
-                if (task.isSuccessful()) {
-                    // Sign In Succes
-                    if (firebaseAuth.getCurrentUser().isEmailVerified()) {
-                        // Go To MainActivity
-                        startActivity(new Intent(SignInActivity.this, MainActivity.class));
-                        finish();
-                    } else {
-                        Utility.showToast(SignInActivity.this, "Harap Verifikasi Email Terlebih Dahulu!");
-                    }
-
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            changeInProgress(false);
+            if (task.isSuccessful()) {
+                // Sign In Succes
+                if (Objects.requireNonNull(firebaseAuth.getCurrentUser()).isEmailVerified()) {
+                    // Go To MainActivity
+                    startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                    finish();
                 } else {
-                    // Sign In Failed
-                    Utility.showToast(SignInActivity.this, task.getException().getLocalizedMessage());
-
+                    Utility.showToast(SignInActivity.this, "Harap Verifikasi Email Terlebih Dahulu!");
                 }
+
+            } else {
+                // Sign In Failed
+                Utility.showToast(SignInActivity.this, Objects.requireNonNull(task.getException()).getLocalizedMessage());
+
             }
         });
 

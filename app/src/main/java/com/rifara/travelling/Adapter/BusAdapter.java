@@ -1,33 +1,29 @@
 package com.rifara.travelling.Adapter;
 
-import android.content.Context;
-import android.content.Intent;
+
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rifara.travelling.ui.DetailPesananActivity;
 import com.rifara.travelling.Model.Bus;
 import com.rifara.travelling.R;
 
 import java.util.List;
 
 public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> {
-    private final Context context;
     private final List<Bus> list;
     private OnItemClickCallback onItemClickCallback;
 
-    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback){
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback;
     }
 
-    public BusAdapter(Context context, List<Bus> list) {
-        this.context = context;
+    public BusAdapter(List<Bus> list) {
         this.list = list;
     }
 
@@ -38,9 +34,9 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
         return new ListViewHolder(itemView);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull BusAdapter.ListViewHolder holder, int position) {
-        Bus bus = list.get(position);
         holder.namaBus.setText(list.get(position).getNamaBus());
         holder.naik.setText(list.get(position).getPickUp());
         holder.turun.setText(list.get(position).getDropOff());
@@ -50,12 +46,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
         holder.start.setText(list.get(position).getTime_start());
         holder.end.setText(list.get(position).getTime_end());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onItemClickCallback.onItemClicked(list.get(holder.getAdapterPosition()));
-            }
-        });
+        holder.itemView.setOnClickListener(view -> onItemClickCallback.onItemClicked(list.get(holder.getAdapterPosition())));
     }
 
     @Override
@@ -63,7 +54,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
         return list.size();
     }
 
-    public class ListViewHolder extends RecyclerView.ViewHolder {
+    public static class ListViewHolder extends RecyclerView.ViewHolder {
         TextView namaBus, harga, naik, turun, waktu, type, start, end;
 
         public ListViewHolder(@NonNull View itemView) {
@@ -79,6 +70,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.ListViewHolder> 
             end = itemView.findViewById(R.id.time_end);
         }
     }
+
     public interface OnItemClickCallback {
         void onItemClicked(Bus data);
     }

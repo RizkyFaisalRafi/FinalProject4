@@ -25,7 +25,6 @@ public class PaymentActivity extends AppCompatActivity {
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final List<Payment> list = new ArrayList<>();
     private PaymentAdapter paymentAdapter;
-    private ActivityPaymentBinding binding;
     private Preferences preferences;
 
     @Override
@@ -33,7 +32,7 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        binding = ActivityPaymentBinding.inflate(getLayoutInflater());
+        com.rifara.travelling.databinding.ActivityPaymentBinding binding = ActivityPaymentBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
@@ -49,7 +48,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         getMethodPayment();
 
-        paymentAdapter.setOnItemClickCallback(data2 -> showSelectedPayment(data2));
+        paymentAdapter.setOnItemClickCallback(this::showSelectedPayment);
 
     }
 
