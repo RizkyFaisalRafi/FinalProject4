@@ -61,8 +61,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="center"
-                    android:layout_marginStart="16dp"
                     android:text="@string/tanggal"
+                    android:layout_marginEnd="20dp"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +134,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginStart="234dp"
                     android:fontFamily="@font/nunito_bold"
                     android:text="@string/passengers" />
 
@@ -159,7 +159,7 @@
                     android:id="@+id/tvPessenger"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginStart="234dp"
                     android:fontFamily="@font/nunito_regular"
                     android:text="@string/penghubung" />
 
@@ -195,7 +195,7 @@
                     android:id="@+id/tvTicket"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginStart="234dp"
                     android:fontFamily="@font/nunito_regular"
                     android:text="@string/penghubung" />
 
@@ -219,7 +219,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginStart="234dp"
                     android:fontFamily="@font/nunito_bold"
                     android:text="@string/total_price" />
 
@@ -229,7 +229,7 @@
                 android:id="@+id/relativeLayout8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout7">
@@ -238,10 +238,10 @@
                     android:id="@+id/tvTotalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="242dp"
+                    android:layout_marginStart="234dp"
                     android:fontFamily="@font/nunito_regular"
                     android:text="@string/penghubung"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
             </RelativeLayout>
 
