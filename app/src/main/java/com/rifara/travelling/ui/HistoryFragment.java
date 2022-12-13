@@ -31,7 +31,6 @@ public class HistoryFragment extends Fragment {
     ArrayList<User> userArrayList;
     HistoryAdapter historyAdapter;
     FirebaseFirestore firebaseFirestore;
-    Button nilai;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,14 +58,6 @@ public class HistoryFragment extends Fragment {
     }
 
     private void EventChangeListener() {
-
-//        nilai.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getActivity(), RatingActivity.class));
-//            }
-//        });
-
 
         firebaseFirestore.collection("Booking")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {

@@ -139,7 +139,18 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/harga"
+                android:id="@+id/rp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv_harga"
+                android:layout_gravity="center"
+                android:layout_marginEnd="4dp"
+                android:text="Rp."
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_harga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

@@ -14,12 +14,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="abhkjesnjsenjesleslseeslkn"
+        android:text="@string/untuk_keluhan_kritik_dan_saran_dalam_penggunaan_naplikasi_travelgo_anda_dapat_menghubungi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/box_number_wa"
+        android:id="@+id/akun1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -34,16 +34,15 @@
         <ImageView
             android:layout_width="28dp"
             android:layout_height="match_parent"
-            android:src="@drawable/logo_whatsapps"
+            android:src="@drawable/instagram"
             android:layout_gravity="center" />
 
         <TextView
-            android:id="@+id/number_wa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="0895412892094"
+            android:text="Rizky Faisal Rafi"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_marginLeft="16dp"/>
@@ -51,46 +50,77 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/box_email"
+        android:id="@+id/akun2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/custom_shape"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="horizontal"
-        android:background="@drawable/custom_shape"
-        app:layout_constraintTop_toBottomOf="@+id/box_number_wa">
+        app:layout_constraintTop_toBottomOf="@+id/akun1">
 
         <ImageView
             android:layout_width="28dp"
             android:layout_height="match_parent"
-            android:src="@drawable/logo_email"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:src="@drawable/instagram" />
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="mdchimtif@gmail.com"
-            android:textSize="16sp"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="Linda Uswatun Hasanah"
             android:textColor="@color/black"
-            android:layout_marginLeft="16dp"/>
+            android:textSize="16sp" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/akun3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="aaaaa"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/custom_shape"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/box_email" />
+        app:layout_constraintTop_toBottomOf="@+id/akun2">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/instagram" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="Wahyu"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="aaaaa"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/box_email" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

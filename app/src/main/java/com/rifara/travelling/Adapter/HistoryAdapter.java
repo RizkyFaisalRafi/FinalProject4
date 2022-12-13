@@ -43,6 +43,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
         holder.from.setText(user.getFrom());
         holder.to.setText(user.getTo());
         holder.passenger.setText(user.getPessenger());
+        holder.totalPrice.setText(user.getTotalPrice());
 
     }
 
@@ -53,7 +54,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView nameBus, date, from, to, passenger;
+        TextView nameBus, date, from, to, passenger, totalPrice;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,7 +64,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
             from = itemView.findViewById(R.id.tv_dari_kota);
             to = itemView.findViewById(R.id.tv_ke_kota);
             passenger = itemView.findViewById(R.id.tv_jumlah_penumpang);
-
+            totalPrice = itemView.findViewById(R.id.tv_harga);
         }
     }
 }

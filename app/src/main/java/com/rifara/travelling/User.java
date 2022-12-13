@@ -2,17 +2,18 @@ package com.rifara.travelling;
 
 public class User {
 
-    String nameBus, date, from, to, pessenger;
+    String nameBus, date, from, to, pessenger, totalPrice;
 
     public User() {
     }
 
-    public User(String nameBus, String date, String from, String to, String pessenger) {
+    public User(String nameBus, String date, String from, String to, String pessenger, String totalPrice) {
         this.nameBus = nameBus;
         this.date = date;
         this.from = from;
         this.to = to;
         this.pessenger = pessenger;
+        this.totalPrice = totalPrice;
     }
 
     public String getNameBus() {
@@ -53,5 +54,14 @@ public class User {
 
     public void setPessenger(String pessenger) {
         this.pessenger = pessenger;
+    }
+
+
+    public String getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }
