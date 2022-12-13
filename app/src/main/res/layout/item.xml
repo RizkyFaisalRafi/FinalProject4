@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="16dp"
-                android:text="Nama Bus"
+                android:text="@string/nama_bus"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 card_view:layout_constraintEnd_toEndOf="parent"
@@ -44,12 +44,13 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center"
                 android:layout_marginEnd="16dp"
-                android:text="Tanggal"
+                android:text="@string/tanggal"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent" />
+                card_view:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RelativeOverlap" />
 
         </RelativeLayout>
 
@@ -68,8 +69,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="16dp"
-                android:text="Paiton"
-                android:textSize="14dp"
+                android:text="@string/paiton"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -78,8 +79,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_toEndOf="@+id/tv_penghubung"
-                android:text="Surabaya"
-                android:textSize="14dp"
+                android:text="@string/surabaya"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -90,7 +91,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_toEndOf="@+id/tv_dari_kota"
-                android:text="-"
+                android:text="@string/penghubung"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -101,10 +102,11 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center"
                 android:layout_marginEnd="16dp"
-                android:text="Selesai"
+                android:text="@string/selesai"
                 android:textColor="#4CAF50"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
 
         </RelativeLayout>
 
@@ -120,10 +122,10 @@
                 android:id="@+id/tv_jumlah_penumpang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:layout_marginStart="16dp"
-                android:layout_centerVertical="true"
-                android:text="2"
+                android:text="@string/_2"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -134,7 +136,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="6dp"
                 android:layout_toEndOf="@+id/tv_jumlah_penumpang"
-                android:text="Penumpang"
+                android:text="@string/passengers"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -142,12 +144,13 @@
                 android:id="@+id/rp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/tv_harga"
                 android:layout_gravity="center"
                 android:layout_marginEnd="4dp"
-                android:text="Rp."
+                android:layout_toStartOf="@+id/tv_harga"
+                android:text="@string/rp"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap" />
 
             <TextView
                 android:id="@+id/tv_harga"
@@ -156,7 +159,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center"
                 android:layout_marginEnd="16dp"
-                android:text="Harga"
+                android:text="@string/harga"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

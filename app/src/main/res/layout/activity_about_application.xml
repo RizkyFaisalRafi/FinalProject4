@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.AboutApplicationActivity">
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="@string/logo_bg"
         android:src="@drawable/img_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +23,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="Aplikasi versi 1.0 Travelgo"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:text="@string/aplikasi_versi_1_0_travelgo"
         android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
@@ -42,4 +42,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

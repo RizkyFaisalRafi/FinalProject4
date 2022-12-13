@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Edit Profile"
+            android:text="@string/edit_profile"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Nama Lengkap"
+            android:hint="@string/nama_lengkap"
             android:textColorHint="@color/black"
             app:boxCornerRadiusBottomEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Email"
+            android:hint="@string/email"
             android:textColorHint="@color/black"
             app:boxCornerRadiusBottomEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
@@ -74,8 +74,8 @@
                 android:id="@+id/et_emailuser"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:gravity="center_vertical"
                 android:autofillHints="emailAddress"
+                android:gravity="center_vertical"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Password"
+            android:hint="@string/password"
             android:textColorHint="@color/black"
             app:boxCornerRadiusBottomEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
@@ -97,8 +97,8 @@
             app:boxStrokeColor="@color/black"
             app:boxStrokeErrorColor="#E80606"
             app:boxStrokeWidth="3dp"
-            app:passwordToggleEnabled="true"
-            app:hintTextColor="@color/black">
+            app:hintTextColor="@color/black"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_password"
@@ -118,7 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Nomor Telephone"
+            android:hint="@string/nomor_telephone"
             android:textColorHint="@color/black"
             app:boxCornerRadiusBottomEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
@@ -154,7 +154,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Update"
+                android:text="@string/update"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -163,7 +163,7 @@
                 android:id="@+id/loading"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:indeterminate="true"
                 android:indeterminateTint="@android:color/white"
                 android:visibility="gone" />

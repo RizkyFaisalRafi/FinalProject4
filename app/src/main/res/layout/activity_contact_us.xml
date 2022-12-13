@@ -25,27 +25,28 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/custom_shape"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="horizontal"
-        android:background="@drawable/custom_shape"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <ImageView
             android:layout_width="28dp"
             android:layout_height="match_parent"
-            android:src="@drawable/instagram"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:contentDescription="@string/instagram_logo"
+            android:src="@drawable/instagram" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="Rizky Faisal Rafi"
-            android:textSize="16sp"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:text="@string/rizky_faisal_rafi"
             android:textColor="@color/black"
-            android:layout_marginLeft="16dp"/>
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -66,15 +67,16 @@
             android:layout_width="28dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:contentDescription="@string/instagram_logo"
             android:src="@drawable/instagram" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Linda Uswatun Hasanah"
+            android:text="@string/linda_uswatun_hasanah"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -97,6 +99,7 @@
             android:layout_width="28dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:contentDescription="@string/instagram_logo"
             android:src="@drawable/instagram" />
 
         <TextView
@@ -104,23 +107,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Wahyu"
+            android:text="@string/wahyu_adi_saputro"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
     </LinearLayout>
-
-<!--    <TextView-->
-<!--        android:id="@+id/textView3"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="24dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:text="aaaaa"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/box_email" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

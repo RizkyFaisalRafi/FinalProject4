@@ -26,24 +26,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!--            <ImageButton-->
-            <!--                android:id="@+id/btn_back"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:src="@drawable/ic_back_white"-->
-            <!--                android:layout_marginStart="8dp"-->
-            <!--                android:backgroundTint="#364767"-->
-            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="parent" />-->
-
             <TextView
                 android:id="@+id/tv_transaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Akun"
+                android:text="@string/akun"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -95,7 +84,7 @@
                     android:id="@+id/tv_name_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nama"
+                    tools:text="@string/nama_lengkap"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -106,7 +95,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Email"
+                    android:text="@string/email"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -138,7 +127,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="24dp"
-                    android:contentDescription="Edit Profil"
+                    android:contentDescription="@string/edit_profil"
                     android:src="@drawable/edit_profile" />
 
                 <LinearLayout
@@ -151,14 +140,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Edit Profile"
+                        android:text="@string/edit_profile"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Klik untuk edit profile Anda"
+                        android:text="@string/klik_untuk_edit_profile_anda"
                         android:textColor="@color/black"
                         android:textStyle="normal" />
                 </LinearLayout>
@@ -191,7 +180,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="24dp"
-                    android:contentDescription="Hubungi Kami"
+                    android:contentDescription="@string/hubungi_kami"
                     android:src="@drawable/call" />
 
                 <LinearLayout
@@ -204,14 +193,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Hubungi Kami"
+                        android:text="@string/hubungi_kami"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="sampaikan_kendala_kritik_dan_saran_anda"
+                        android:text="@string/sampaikan_kendala_kritik_dan_saran_anda"
                         android:textColor="@color/black"
                         android:textStyle="normal" />
                 </LinearLayout>
@@ -244,7 +233,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="24dp"
-                    android:contentDescription="tentang_aplikasi"
+                    android:contentDescription="@string/tentang_aplikasi"
                     android:src="@drawable/about_app" />
 
                 <LinearLayout
@@ -257,14 +246,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="tentang_aplikasi"
+                        android:text="@string/tentang_aplikasi"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="lihat_informasi_lengkap_tentang_aplikasi"
+                        android:text="@string/lihat_informasi_lengkap_tentang_aplikasi"
                         android:textColor="@color/black"
                         android:textStyle="normal" />
                 </LinearLayout>
@@ -297,7 +286,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="24dp"
-                    android:contentDescription="keluar_akun"
+                    android:contentDescription="@string/keluar_akun"
                     android:src="@drawable/log_out" />
 
                 <LinearLayout
@@ -310,14 +299,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="keluar_akun"
+                        android:text="@string/keluar_akun"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="klik_untuk_keluar_dari_akun_anda"
+                        android:text="@string/klik_untuk_keluar_dari_akun_anda"
                         android:textColor="@color/black"
                         android:textStyle="normal" />
                 </LinearLayout>

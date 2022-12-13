@@ -11,22 +11,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="vertical"
         android:padding="14dp">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="230dp"
-            android:src="@drawable/img_logo"
-            android:contentDescription="@string/logo_bg" />
+            android:contentDescription="@string/logo_bg"
+            android:src="@drawable/img_logo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Masuk Akun"
+            android:text="@string/masuk_akun"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Email"
+            android:hint="@string/email"
             android:textColorHint="@color/black"
             app:boxCornerRadiusBottomEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
@@ -52,8 +52,8 @@
                 android:id="@+id/et_email_sign_in"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:gravity="center_vertical"
                 android:autofillHints="emailAddress"
+                android:gravity="center_vertical"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Password"
+            android:hint="@string/password"
             android:textColorHint="@color/black"
             app:boxCornerRadiusBottomEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
@@ -75,8 +75,8 @@
             app:boxStrokeColor="@color/black"
             app:boxStrokeErrorColor="#E80606"
             app:boxStrokeWidth="3dp"
-            app:passwordToggleEnabled="true"
-            app:hintTextColor="@color/black">
+            app:hintTextColor="@color/black"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_password_sign_in"
@@ -103,7 +103,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Masuk"
+                android:text="@string/masuk"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -112,7 +112,7 @@
                 android:id="@+id/loading"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:indeterminate="true"
                 android:indeterminateTint="@android:color/white"
                 android:visibility="gone" />
@@ -132,13 +132,14 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_google" />
+                android:src="@drawable/ic_google"
+                android:contentDescription="@string/icon" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Masuk / Daftar Dengan Google"
+                android:text="@string/masuk_daftar_dengan_google"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -156,32 +157,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
             android:gravity="center"
-            android:layout_marginTop="16dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Anggota baru?"
-                android:textStyle="bold"
+                android:text="@string/anggota_baru"
                 android:textColor="#737373"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:layout_marginStart="4dp"
                 android:id="@+id/tv_create_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Daftar"
-                android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:text="@string/daftar"
                 android:textColor="#2B4780"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
-
 
 
     </LinearLayout>

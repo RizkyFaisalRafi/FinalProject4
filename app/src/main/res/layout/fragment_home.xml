@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -27,24 +27,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!--            <ImageButton-->
-            <!--                android:id="@+id/btn_back"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:src="@drawable/ic_back_white"-->
-            <!--                android:layout_marginStart="8dp"-->
-            <!--                android:backgroundTint="#364767"-->
-            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="parent" />-->
-
             <TextView
                 android:id="@+id/tv_transaction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Beranda"
+                android:text="@string/beranda"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -70,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="271dp"
             android:background="@drawable/bgblue"
+            android:contentDescription="@string/logo_bg"
             android:scaleType="fitCenter"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -83,6 +73,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="219dp"
+            android:contentDescription="@string/icon"
             android:src="@drawable/notifikasi" />
 
         <TextView
@@ -94,7 +85,8 @@
             android:fontFamily="@font/nunito_regular"
             android:text="@string/where_will_you_ngo_today"
             android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            tools:ignore="RelativeOverlap" />
 
         <!--    card From-->
         <TextView
@@ -105,7 +97,8 @@
             android:layout_marginBottom="185dp"
             android:text="@string/welcome"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            tools:ignore="RelativeOverlap" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -121,6 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="11dp"
+                android:contentDescription="@string/icon"
                 android:src="@drawable/from" />
 
             <LinearLayout
@@ -162,6 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="11dp"
+                android:contentDescription="@string/icon"
                 android:src="@drawable/to" />
 
             <LinearLayout
@@ -208,6 +203,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="11dp"
+                    android:contentDescription="@string/icon"
                     android:src="@drawable/penumpang" />
 
                 <TextView
@@ -255,6 +251,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="11dp"
+                    android:contentDescription="@string/icon"
                     android:src="@drawable/date" />
 
                 <LinearLayout
