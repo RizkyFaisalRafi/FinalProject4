@@ -17,7 +17,8 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
     int total_pessenger;
     private Preferences preferences;
     int totalClick2 = 0;
-
+    String nameBus, pessenger, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance, seats, imgbus, iconPayment, methodPayment;
+    int price, totalprice, pessengers;
     int seat, seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat10, seat11, seat12, seat13, seat14, seat15, seat16, seat17, seat18, seat19, seat20, seat21, seat22, seat23, seat24, seat25, seat26, seat27, seat28, seat29, seat30, seat31;
 
     String kode_seat = "", kdseat1 = "", kdseat2 = "", kdseat3 = "", kdseat4 = "", kdseat5 = "", kdseat6 = "", kdseat7 = "", kdseat8 = "", kdseat9 = "", kdseat10 = "", kdseat11 = "", kdseat12 = "", kdseat13 = "", kdseat14 = "", kdseat15 = "", kdseat16 = "", kdseat17 = "", kdseat18 = "", kdseat19 = "", kdseat20 = "", kdseat21 = "", kdseat22 = "", kdseat23 = "", kdseat24 = "", kdseat25 = "", kdseat26 = "", kdseat27 = "", kdseat28 = "", kdseat29 = "", kdseat30 = "", kdseat31 = "";
@@ -30,6 +31,23 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
 
         preferences = new Preferences(this);
         total_pessenger = Integer.parseInt(getIntent().getStringExtra("total_pessenger"));
+        Bundle detail = getIntent().getExtras();
+
+        nameBus = detail.getString("nameBus");
+        from = detail.getString("from");
+        to = detail.getString("to");
+        pickUp = detail.getString("pick_up");
+        dropOff = detail.getString("drop_off");
+        timeStart = detail.getString("time_start");
+        timeEnd = detail.getString("time_end");
+        longTime = detail.getString("long_time");
+        date = detail.getString("date");
+        type = detail.getString("type");
+        imgbus = detail.getString("imgbus");
+        distance = detail.getString("distance");
+        pessenger = detail.getString("total_pessenger");
+        totalprice = Integer.parseInt(detail.getString("totalPrice"));
+//        price = Integer.parseInt(detail.getString("totalprice"));
 
         binding.view1.setOnClickListener(this);
         binding.view2.setOnClickListener(this);
@@ -65,7 +83,20 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
 
         binding.btnBookNow.setOnClickListener(view -> {
             Intent intent = new Intent(SeatActivity.this, DetailPesananActivity.class);
-            if (seat == total_pessenger) {
+            if (seat == Integer.parseInt(pessenger)){
+                intent.putExtra("pessenger", pessenger);
+                intent.putExtra("namabus", nameBus);
+                intent.putExtra("from", from);
+                intent.putExtra("to", to);
+                intent.putExtra("drop_off", dropOff);
+                intent.putExtra("pick_up",pickUp);
+                intent.putExtra("time_start", timeStart);
+                intent.putExtra("time_end", timeEnd);
+                intent.putExtra("long_time", longTime);
+                intent.putExtra("seat", binding.totalseat.getText().toString());
+                intent.putExtra("type", type);
+                intent.putExtra("totalPrice", totalprice);
+                intent.putExtra("date", date);
                 preferences.getEditor().putString("kodeseat", binding.totalseat.getText().toString()).apply();
                 startActivity(intent);
             } else {

@@ -49,6 +49,7 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/nunito_bold"
                     android:text="@string/name_bus"
+                    android:textColor="@color/small_text"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +63,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="center"
                     android:text="@string/tanggal"
+                    android:textColor="@color/small_text"
                     android:layout_marginEnd="20dp"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -87,6 +89,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/nunito_regular"
+                    android:textColor="@color/small_text"
                     android:text="@string/paiton" />
 
                 <TextView
@@ -95,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="8dp"
+                    android:textColor="@color/small_text"
                     android:layout_marginEnd="8dp"
                     android:layout_toEndOf="@+id/tvDariKota"
                     android:text="@string/penghubung" />
@@ -106,6 +110,7 @@
                     android:layout_gravity="center"
                     android:layout_toEndOf="@+id/tvPenghubung"
                     android:fontFamily="@font/nunito_regular"
+                    android:textColor="@color/small_text"
                     android:text="@string/surabaya" />
 
                 <TextView
@@ -136,12 +141,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="234dp"
                     android:fontFamily="@font/nunito_bold"
+                    android:textColor="@color/small_text"
                     android:text="@string/passengers" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="140dp"
+                    android:textColor="@color/small_text"
                     android:fontFamily="@font/nunito_bold"
                     android:text="@string/seat" />
             </RelativeLayout>
@@ -160,6 +167,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="234dp"
+                    android:textColor="@color/small_text"
                     android:fontFamily="@font/nunito_regular"
                     android:text="@string/penghubung" />
 
@@ -168,6 +176,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="140dp"
+                    android:textColor="@color/small_text"
                     android:fontFamily="@font/nunito_regular"
                     android:text="@string/penghubung" />
             </RelativeLayout>
@@ -197,6 +206,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="234dp"
                     android:fontFamily="@font/nunito_regular"
+                    android:textColor="@color/small_text"
                     android:text="@string/penghubung" />
 
                 <TextView
@@ -204,6 +214,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="140dp"
                     android:fontFamily="@font/nunito_bold"
+                    android:textColor="@color/small_text"
                     android:text="@string/ticket" />
             </RelativeLayout>
 
@@ -221,6 +232,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="234dp"
                     android:fontFamily="@font/nunito_bold"
+                    android:textColor="@color/small_text"
                     android:text="@string/total_price" />
 
             </RelativeLayout>
@@ -241,6 +253,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/nunito_bold"
+                    android:textColor="@color/small_text"
                     android:textSize="16sp"
                     tools:text="Rp. 100.000.00" />
 

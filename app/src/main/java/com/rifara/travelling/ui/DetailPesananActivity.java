@@ -58,6 +58,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         distance = detail.getString("distance");
         pessenger = detail.getString("pessenger");
         price = Integer.parseInt(detail.getString("price"));
+//        seats = detail.getString("seat");
 
 
         pessengers = Integer.parseInt(pessenger);
@@ -69,10 +70,35 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         binding.btChooseSeat.setOnClickListener(view12 -> {
             Intent intent = new Intent(DetailPesananActivity.this, SeatActivity.class);
             intent.putExtra("total_pessenger", pessenger);
+            intent.putExtra("namabus", nameBus);
+            intent.putExtra("from", from);
+            intent.putExtra("to", to);
+            intent.putExtra("drop_off", dropOff);
+            intent.putExtra("pick_up",pickUp);
+            intent.putExtra("time_start", timeStart);
+            intent.putExtra("time_end", timeEnd);
+            intent.putExtra("long_time", longTime);
+            intent.putExtra("seat", seats);
+            intent.putExtra("type", type);
+            intent.putExtra("totalPrice", String.valueOf(totalprice));
+            intent.putExtra("date", date);
             startActivity(intent);
         });
         binding.btPayment.setOnClickListener(view1 -> {
             Intent intent = new Intent(DetailPesananActivity.this, PaymentActivity.class);
+            intent.putExtra("total_pessenger", pessenger);
+            intent.putExtra("namabus", nameBus);
+            intent.putExtra("from", from);
+            intent.putExtra("to", to);
+            intent.putExtra("drop_off", dropOff);
+            intent.putExtra("pick_up",pickUp);
+            intent.putExtra("time_start", timeStart);
+            intent.putExtra("time_end", timeEnd);
+            intent.putExtra("long_time", longTime);
+            intent.putExtra("seat", seats);
+            intent.putExtra("type", type);
+            intent.putExtra("totalPrice", String.valueOf(totalprice));
+            intent.putExtra("date", date);
             startActivity(intent);
         });
         binding.imgBack.setOnClickListener(view1 -> {
@@ -86,6 +112,20 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
     protected void onResume() {
         super.onResume();
         seats = preferences.getSharedPreferences().getString("kodeseat", null);
+        Bundle detail = getIntent().getExtras();
+
+        nameBus = detail.getString("nameBus");
+        from = detail.getString("from");
+        to = detail.getString("to");
+        pickUp = detail.getString("pick_up");
+        dropOff = detail.getString("drop_off");
+        timeStart = detail.getString("time_start");
+        timeEnd = detail.getString("time_end");
+        longTime = detail.getString("long_time");
+        date = detail.getString("date");
+        type = detail.getString("type");
+        distance = detail.getString("distance");
+        pessenger = detail.getString("pessenger");
         if (seats != null) {
             binding.tvSeat.setText(seats);
         }
@@ -123,6 +163,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         binding.tvClass.setText(type);
         binding.totalPrice.setText(getPrice(totalprice));
         binding.pessengersDetail.setText(pessenger + " Pessengers");
+//        binding.tvSeat.setText(seats);
 
     }
 
