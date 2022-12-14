@@ -27,6 +27,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/daftar"
             android:textColor="@color/black"
+            android:fontFamily="@font/nunito_bold"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -54,6 +55,7 @@
                 android:autofillHints="name"
                 android:gravity="center_vertical"
                 android:inputType="text"
+                android:fontFamily="@font/nunito_regular"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -83,6 +85,7 @@
                 android:gravity="center_vertical"
                 android:autofillHints="emailAddress"
                 android:inputType="textEmailAddress"
+                android:fontFamily="@font/nunito_regular"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -114,6 +117,7 @@
                 android:gravity="center_vertical"
                 android:inputType="textPassword"
                 android:textColor="@color/black"
+                android:fontFamily="@font/nunito_regular"
                 android:textSize="15sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -142,6 +146,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="password"
                 android:gravity="center_vertical"
+                android:fontFamily="@font/nunito_regular"
                 android:inputType="textPassword"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -173,6 +178,7 @@
                 android:gravity="center_vertical"
                 android:inputType="phone"
                 android:textColor="@color/black"
+                android:fontFamily="@font/nunito_regular"
                 android:textSize="15sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -193,6 +199,7 @@
                 android:text="@string/daftar"
                 android:textColor="@color/white"
                 android:textSize="15sp"
+                android:fontFamily="@font/nunito_bold"
                 android:textStyle="bold" />
 
             <ProgressBar
@@ -219,6 +226,7 @@
                 android:text="@string/sudah_punya_akun"
                 android:textColor="#737373"
                 android:textSize="15sp"
+                android:fontFamily="@font/nunito_bold"
                 android:textStyle="bold" />
 
             <TextView
@@ -228,6 +236,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="4dp"
                 android:text="@string/masuk"
+                android:fontFamily="@font/nunito_bold"
                 android:textColor="#2B4780"
                 android:textSize="15sp"
                 android:textStyle="bold" />

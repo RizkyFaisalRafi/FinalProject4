@@ -9,7 +9,7 @@
     android:layout_marginTop="4dp"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="4dp"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -31,8 +31,10 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="16dp"
                 android:text="@string/nama_bus"
-                android:textSize="14sp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
+                android:fontFamily="@font/nunito_bold"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +48,9 @@
                 android:layout_marginEnd="16dp"
                 android:text="@string/tanggal"
                 android:textSize="12sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
+                android:fontFamily="@font/nunito_semi_bold"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent"
@@ -70,6 +74,8 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="16dp"
                 android:text="@string/paiton"
+                android:textColor="@color/small_text"
+                android:fontFamily="@font/nunito_regular"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -80,6 +86,8 @@
                 android:layout_gravity="center"
                 android:layout_toEndOf="@+id/tv_penghubung"
                 android:text="@string/surabaya"
+                android:textColor="@color/small_text"
+                android:fontFamily="@font/nunito_regular"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -92,6 +100,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_toEndOf="@+id/tv_dari_kota"
                 android:text="@string/penghubung"
+                android:textColor="#858585"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -104,6 +113,7 @@
                 android:layout_marginEnd="16dp"
                 android:text="@string/selesai"
                 android:textColor="#4CAF50"
+                android:fontFamily="@font/nunito_medium"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
@@ -126,7 +136,9 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="16dp"
                 android:text="@string/_2"
-                android:textSize="16sp"
+                android:textColor="@color/small_text"
+                android:fontFamily="@font/nunito_medium"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -137,7 +149,9 @@
                 android:layout_marginStart="6dp"
                 android:layout_toEndOf="@+id/tv_jumlah_penumpang"
                 android:text="@string/passengers"
-                android:textSize="16sp"
+                android:textColor="@color/small_text"
+                android:fontFamily="@font/nunito_regular"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -148,6 +162,8 @@
                 android:layout_marginEnd="4dp"
                 android:layout_toStartOf="@+id/tv_harga"
                 android:text="@string/rp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nunito_medium"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
@@ -159,7 +175,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center"
                 android:layout_marginEnd="16dp"
-                android:text="@string/harga"
+                tools:text="20.000.00"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nunito_medium"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

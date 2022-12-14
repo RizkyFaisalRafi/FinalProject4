@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/bg"
     tools:context=".ui.ContactUsActivity">
 
 
@@ -16,6 +17,8 @@
         android:layout_marginTop="24dp"
         android:text="@string/untuk_keluhan_kritik_dan_saran_dalam_penggunaan_naplikasi_travelgo_anda_dapat_menghubungi"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#364767"
+        android:fontFamily="@font/nunito_medium"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
@@ -45,6 +48,7 @@
             android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:text="@string/rizky_faisal_rafi"
+            android:fontFamily="@font/nunito_medium"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -78,6 +82,7 @@
             android:layout_weight="1"
             android:text="@string/linda_uswatun_hasanah"
             android:textColor="@color/black"
+            android:fontFamily="@font/nunito_medium"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -111,6 +116,7 @@
             android:layout_weight="1"
             android:text="@string/wahyu_adi_saputro"
             android:textColor="@color/black"
+            android:fontFamily="@font/nunito_medium"
             android:textSize="16sp" />
 
     </LinearLayout>

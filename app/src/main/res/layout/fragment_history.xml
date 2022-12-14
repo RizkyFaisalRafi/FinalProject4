@@ -7,20 +7,29 @@
     android:background="@color/bg">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/detailOrderToolbar"
+        android:id="@+id/toolbar_seat"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#364767"
         android:elevation="8dp"
         android:minHeight="?attr/actionBarSize"
-        android:paddingHorizontal="4dp"
         android:theme="?attr/actionBarTheme"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@color/white">
+        app:titleTextColor="@color/white"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingHorizontal="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/history"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </androidx.appcompat.widget.Toolbar>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -32,8 +41,9 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="History Pesanan"
+                android:text="@string/history_pesanan"
                 android:textColor="@color/white"
+                android:fontFamily="@font/nunito_regular"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +51,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.appcompat.widget.Toolbar>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_historyy"
@@ -53,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailOrderToolbar"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_seat"
         tools:listitem="@layout/item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

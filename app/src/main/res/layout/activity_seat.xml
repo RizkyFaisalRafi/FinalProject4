@@ -10,11 +10,18 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_seat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue"
+        android:layout_height="50dp"
+        android:background="#364767"
+        android:elevation="8dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingHorizontal="4dp">
 
         <ImageView
             android:id="@+id/img_back"
@@ -28,6 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/choose_seats"
+            android:fontFamily="@font/nunito_regular"
             android:textColor="@color/white"
             android:textSize="16sp" />
     </androidx.appcompat.widget.Toolbar>

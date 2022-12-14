@@ -30,7 +30,6 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
 
         preferences = new Preferences(this);
         total_pessenger = Integer.parseInt(getIntent().getStringExtra("total_pessenger"));
-        Toast.makeText(this, "" + total_pessenger, Toast.LENGTH_SHORT).show();
 
         binding.view1.setOnClickListener(this);
         binding.view2.setOnClickListener(this);

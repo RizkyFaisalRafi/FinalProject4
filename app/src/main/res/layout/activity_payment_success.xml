@@ -238,10 +238,11 @@
                     android:id="@+id/tvTotalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="234dp"
-                    android:fontFamily="@font/nunito_regular"
-                    android:text="@string/penghubung"
-                    android:textSize="15sp" />
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textSize="16sp"
+                    tools:text="Rp. 100.000.00" />
 
             </RelativeLayout>
 
@@ -256,9 +257,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="200dp"
-        android:fontFamily="@font/nunito_semi_bold"
+        android:fontFamily="@font/nunito_bold"
         android:text="@string/PaymentSucess"
         android:textSize="30sp"
+        android:textColor="@color/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -271,6 +273,7 @@
         android:fontFamily="@font/nunito_semi_bold"
         android:text="@string/DescriptionPayment"
         android:textAlignment="center"
+        android:textColor="@color/bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4" />

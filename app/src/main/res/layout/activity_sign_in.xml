@@ -28,6 +28,7 @@
             android:layout_marginTop="20dp"
             android:text="@string/masuk_akun"
             android:textColor="@color/black"
+            android:fontFamily="@font/nunito_bold"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -54,6 +55,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="emailAddress"
                 android:gravity="center_vertical"
+                android:fontFamily="@font/nunito_regular"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -85,6 +87,7 @@
                 android:autofillHints="password"
                 android:gravity="center_vertical"
                 android:inputType="textPassword"
+                android:fontFamily="@font/nunito_regular"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -106,6 +109,7 @@
                 android:text="@string/masuk"
                 android:textColor="@color/white"
                 android:textSize="15sp"
+                android:fontFamily="@font/nunito_bold"
                 android:textStyle="bold" />
 
             <ProgressBar
@@ -142,6 +146,7 @@
                 android:text="@string/masuk_daftar_dengan_google"
                 android:textColor="@color/white"
                 android:textSize="15sp"
+                android:fontFamily="@font/nunito_bold"
                 android:textStyle="bold" />
 
             <ProgressBar
@@ -168,6 +173,7 @@
                 android:text="@string/anggota_baru"
                 android:textColor="#737373"
                 android:textSize="15sp"
+                android:fontFamily="@font/nunito_bold"
                 android:textStyle="bold" />
 
             <TextView
@@ -177,6 +183,7 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="4dp"
                 android:text="@string/daftar"
+                android:fontFamily="@font/nunito_bold"
                 android:textColor="#2B4780"
                 android:textSize="15sp"
                 android:textStyle="bold" />

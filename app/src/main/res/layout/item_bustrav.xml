@@ -110,14 +110,6 @@
             app:layout_constraintStart_toEndOf="@+id/time_end"
             app:layout_constraintTop_toBottomOf="@+id/dari" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/logo_bg"
-            android:src="@drawable/decor2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
         <TextView
             android:id="@+id/price"
             android:layout_width="wrap_content"
@@ -159,7 +151,7 @@
             android:layout_marginStart="10dp"
             android:fontFamily="@font/nunito_semi_bold"
             android:text="@string/_8_7"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/decor2"
             app:layout_constraintTop_toBottomOf="@+id/time_end" />

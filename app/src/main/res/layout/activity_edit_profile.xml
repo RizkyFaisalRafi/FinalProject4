@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@color/bg"
     tools:context=".ui.EditProfileActivity">
 
     <LinearLayout
@@ -21,6 +21,7 @@
             android:layout_marginTop="20dp"
             android:text="@string/edit_profile"
             android:textColor="@color/black"
+            android:fontFamily="@font/nunito_bold"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -48,6 +49,7 @@
                 android:autofillHints="name"
                 android:gravity="center_vertical"
                 android:inputType="text"
+                android:fontFamily="@font/nunito_regular"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -77,6 +79,7 @@
                 android:autofillHints="emailAddress"
                 android:gravity="center_vertical"
                 android:inputType="textEmailAddress"
+                android:fontFamily="@font/nunito_regular"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -107,6 +110,7 @@
                 android:autofillHints="password"
                 android:gravity="center_vertical"
                 android:inputType="textPassword"
+                android:fontFamily="@font/nunito_regular"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -137,6 +141,7 @@
                 android:gravity="center_vertical"
                 android:inputType="phone"
                 android:textColor="@color/black"
+                android:fontFamily="@font/nunito_regular"
                 android:textSize="15sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -155,8 +160,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/update"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="15sp"
+                android:fontFamily="@font/nunito_bold"
                 android:textStyle="bold" />
 
             <ProgressBar

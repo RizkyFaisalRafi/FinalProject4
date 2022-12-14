@@ -109,6 +109,8 @@
     <string name="_2">2</string>
     <string name="rp">Rp.</string>
     <string name="harga">Harga</string>
+    <string name="history">History</string>
+    <string name="history_pesanan">History Pesanan</string>
 
     <!-- array spiner -->
     <string-array name="Kota">

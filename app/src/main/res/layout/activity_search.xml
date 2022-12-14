@@ -14,7 +14,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:background="@drawable/abstrak"
+            android:background="#364767"
             android:contentDescription="@string/logo_bg" />
 
         <ImageView

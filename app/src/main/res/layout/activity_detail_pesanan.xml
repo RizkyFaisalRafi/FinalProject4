@@ -7,10 +7,19 @@
     tools:context=".ui.DetailPesananActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_detail_bus"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue">
+        android:layout_height="50dp"
+        android:background="#364767"
+        android:elevation="8dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingHorizontal="4dp">
 
         <ImageView
             android:id="@+id/img_back"
@@ -23,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/nunito_bold"
+            android:fontFamily="@font/nunito_regular"
             android:text="@string/book_a_trip"
             android:textColor="@color/white"
             android:textSize="16sp" />
@@ -33,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="55dp">
+        android:layout_marginTop="50dp">
 
         <RelativeLayout
             android:layout_width="match_parent"

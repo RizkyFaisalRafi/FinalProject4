@@ -5,61 +5,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".ui.HomeFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/detailOrderToolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#364767"
-        android:elevation="8dp"
-        android:minHeight="?attr/actionBarSize"
-        android:paddingHorizontal="4dp"
-        android:theme="?attr/actionBarTheme"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@color/white">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_transaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/beranda"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_transaction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@string/beranda"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
         android:id="@+id/aaa"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="49dp"
-        android:background="@color/bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailOrderToolbar">
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout">
 
         <ImageView
             android:id="@+id/img"
             android:layout_width="match_parent"
-            android:layout_height="271dp"
-            android:background="@drawable/bgblue"
-            android:contentDescription="@string/logo_bg"
+            android:layout_height="251dp"
+            android:background="@drawable/first"
             android:scaleType="fitCenter"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -72,7 +54,7 @@
             android:layout_alignBottom="@+id/img"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="15dp"
-            android:layout_marginBottom="219dp"
+            android:layout_marginBottom="200dp"
             android:contentDescription="@string/icon"
             android:src="@drawable/notifikasi" />
 
@@ -81,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/img"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="103dp"
+            android:layout_marginBottom="85dp"
             android:fontFamily="@font/nunito_regular"
             android:text="@string/where_will_you_ngo_today"
             android:textColor="@color/white"
@@ -94,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/img"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="185dp"
+            android:layout_marginBottom="170dp"
             android:text="@string/welcome"
             android:textColor="@color/white"
             android:textSize="15sp"
