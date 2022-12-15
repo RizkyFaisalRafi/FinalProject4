@@ -10,15 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.rifara.travelling.databinding.ActivitySeatBinding;
 import com.rifara.travelling.ui.DetailPesananActivity;
+import com.rifara.travelling.ui.SearchActivity;
 
 public class SeatActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivitySeatBinding binding;
-    int total_pessenger;
     private Preferences preferences;
     int totalClick2 = 0;
-    String nameBus, pessenger, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance, seats, imgbus, iconPayment, methodPayment;
-    int price, totalprice, pessengers;
+    String price, nameBus, pessenger, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance, seats, imgbus, iconPayment, methodPayment;
+
     int seat, seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat10, seat11, seat12, seat13, seat14, seat15, seat16, seat17, seat18, seat19, seat20, seat21, seat22, seat23, seat24, seat25, seat26, seat27, seat28, seat29, seat30, seat31;
 
     String kode_seat = "", kdseat1 = "", kdseat2 = "", kdseat3 = "", kdseat4 = "", kdseat5 = "", kdseat6 = "", kdseat7 = "", kdseat8 = "", kdseat9 = "", kdseat10 = "", kdseat11 = "", kdseat12 = "", kdseat13 = "", kdseat14 = "", kdseat15 = "", kdseat16 = "", kdseat17 = "", kdseat18 = "", kdseat19 = "", kdseat20 = "", kdseat21 = "", kdseat22 = "", kdseat23 = "", kdseat24 = "", kdseat25 = "", kdseat26 = "", kdseat27 = "", kdseat28 = "", kdseat29 = "", kdseat30 = "", kdseat31 = "";
@@ -30,7 +30,6 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(binding.getRoot());
 
         preferences = new Preferences(this);
-        total_pessenger = Integer.parseInt(getIntent().getStringExtra("total_pessenger"));
         Bundle detail = getIntent().getExtras();
 
         nameBus = detail.getString("nameBus");
@@ -45,9 +44,9 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
         type = detail.getString("type");
         imgbus = detail.getString("imgbus");
         distance = detail.getString("distance");
-        pessenger = detail.getString("total_pessenger");
-        totalprice = Integer.parseInt(detail.getString("totalPrice"));
-//        price = Integer.parseInt(detail.getString("totalprice"));
+        pessenger = detail.getString("pessenger");
+        imgbus = detail.getString("imgbus");
+        price = detail.getString("price");
 
         binding.view1.setOnClickListener(this);
         binding.view2.setOnClickListener(this);
@@ -85,7 +84,7 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(SeatActivity.this, DetailPesananActivity.class);
             if (seat == Integer.parseInt(pessenger)){
                 intent.putExtra("pessenger", pessenger);
-                intent.putExtra("namabus", nameBus);
+                intent.putExtra("nameBus", nameBus);
                 intent.putExtra("from", from);
                 intent.putExtra("to", to);
                 intent.putExtra("drop_off", dropOff);
@@ -95,17 +94,23 @@ public class SeatActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("long_time", longTime);
                 intent.putExtra("seat", binding.totalseat.getText().toString());
                 intent.putExtra("type", type);
-                intent.putExtra("totalPrice", totalprice);
+                intent.putExtra("price", price);
                 intent.putExtra("date", date);
+                intent.putExtra("imgbus", imgbus);
                 preferences.getEditor().putString("kodeseat", binding.totalseat.getText().toString()).apply();
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "Please choose " + total_pessenger + " seats", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please choose " + pessenger + " seats", Toast.LENGTH_SHORT).show();
             }
         });
         binding.imgBack.setOnClickListener(view1 -> startActivity(new Intent(SeatActivity.this, DetailPesananActivity.class)));
     }
-
+//
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        startActivity(new Intent(SeatActivity.this, DetailPesananActivity.class));
+//    }
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {

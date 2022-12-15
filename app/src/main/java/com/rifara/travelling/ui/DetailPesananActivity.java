@@ -31,7 +31,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
 
     private Preferences preferences;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String nameBus, pessenger, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance, seats, imgbus, iconPayment, methodPayment;
+    String price1, nameBus, pessenger, from, to, pickUp, dropOff, timeStart, timeEnd, longTime, date, type, distance, seats, imgbus, iconPayment, methodPayment;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -42,35 +42,13 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         setContentView(view);
 
         preferences = new Preferences(this);
-        Bundle detail = getIntent().getExtras();
-
-        nameBus = detail.getString("nameBus");
-        from = detail.getString("from");
-        to = detail.getString("to");
-        pickUp = detail.getString("pick_up");
-        dropOff = detail.getString("drop_off");
-        timeStart = detail.getString("time_start");
-        timeEnd = detail.getString("time_end");
-        longTime = detail.getString("long_time");
-        date = detail.getString("date");
-        type = detail.getString("type");
-        imgbus = detail.getString("imgbus");
-        distance = detail.getString("distance");
-        pessenger = detail.getString("pessenger");
-        price = Integer.parseInt(detail.getString("price"));
-//        seats = detail.getString("seat");
-
-
-        pessengers = Integer.parseInt(pessenger);
-        totalprice = price * pessengers;
-
 
         binding.bookNow.setOnClickListener(this);
 
         binding.btChooseSeat.setOnClickListener(view12 -> {
             Intent intent = new Intent(DetailPesananActivity.this, SeatActivity.class);
-            intent.putExtra("total_pessenger", pessenger);
-            intent.putExtra("namabus", nameBus);
+            intent.putExtra("pessenger", pessenger);
+            intent.putExtra("nameBus", nameBus);
             intent.putExtra("from", from);
             intent.putExtra("to", to);
             intent.putExtra("drop_off", dropOff);
@@ -80,14 +58,15 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
             intent.putExtra("long_time", longTime);
             intent.putExtra("seat", seats);
             intent.putExtra("type", type);
-            intent.putExtra("totalPrice", String.valueOf(totalprice));
+            intent.putExtra("price", price1);
+            intent.putExtra("imgbus", imgbus);
             intent.putExtra("date", date);
             startActivity(intent);
         });
         binding.btPayment.setOnClickListener(view1 -> {
             Intent intent = new Intent(DetailPesananActivity.this, PaymentActivity.class);
-            intent.putExtra("total_pessenger", pessenger);
-            intent.putExtra("namabus", nameBus);
+            intent.putExtra("pessenger", pessenger);
+            intent.putExtra("nameBus", nameBus);
             intent.putExtra("from", from);
             intent.putExtra("to", to);
             intent.putExtra("drop_off", dropOff);
@@ -97,35 +76,23 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
             intent.putExtra("long_time", longTime);
             intent.putExtra("seat", seats);
             intent.putExtra("type", type);
-            intent.putExtra("totalPrice", String.valueOf(totalprice));
+            intent.putExtra("price", price1);
+            intent.putExtra("imgbus", imgbus);
             intent.putExtra("date", date);
             startActivity(intent);
         });
-        binding.imgBack.setOnClickListener(view1 -> {
-            startActivity(new Intent(DetailPesananActivity.this, SearchActivity.class));
-            preferences.getEditor().clear().apply();
-        });
+//        binding.imgBack.setOnClickListener(view1 -> {
+//            Intent back = new Intent(DetailPesananActivity.this, SearchActivity.class);
+//            startActivity(back);
+//        });
         getImageBus();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         seats = preferences.getSharedPreferences().getString("kodeseat", null);
-        Bundle detail = getIntent().getExtras();
-
-        nameBus = detail.getString("nameBus");
-        from = detail.getString("from");
-        to = detail.getString("to");
-        pickUp = detail.getString("pick_up");
-        dropOff = detail.getString("drop_off");
-        timeStart = detail.getString("time_start");
-        timeEnd = detail.getString("time_end");
-        longTime = detail.getString("long_time");
-        date = detail.getString("date");
-        type = detail.getString("type");
-        distance = detail.getString("distance");
-        pessenger = detail.getString("pessenger");
         if (seats != null) {
             binding.tvSeat.setText(seats);
         }
@@ -144,6 +111,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+//        startActivity(new Intent(DetailPesananActivity.this, SearchActivity.class));
         preferences.getEditor().clear().apply();
     }
 
@@ -151,6 +119,29 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onStart() {
         super.onStart();
+
+        Bundle detail = getIntent().getExtras();
+
+        nameBus = detail.getString("nameBus");
+        from = detail.getString("from");
+        to = detail.getString("to");
+        pickUp = detail.getString("pick_up");
+        dropOff = detail.getString("drop_off");
+        timeStart = detail.getString("time_start");
+        timeEnd = detail.getString("time_end");
+        longTime = detail.getString("long_time");
+        date = detail.getString("date");
+        type = detail.getString("type");
+        imgbus = detail.getString("imgbus");
+        distance = detail.getString("distance");
+        pessenger = detail.getString("pessenger");
+        price1 = detail.getString("price");
+
+        pessengers = Integer.parseInt(pessenger);
+        price = Integer.parseInt(price1);
+        totalprice = price * pessengers;
+
+        getImageBus();
         binding.nameBusDetail.setText(nameBus);
         binding.fromDetail.setText(from);
         binding.toDetail.setText(to);
@@ -164,6 +155,7 @@ public class DetailPesananActivity extends AppCompatActivity implements View.OnC
         binding.totalPrice.setText(getPrice(totalprice));
         binding.pessengersDetail.setText(pessenger + " Pessengers");
 //        binding.tvSeat.setText(seats);
+
 
     }
 
