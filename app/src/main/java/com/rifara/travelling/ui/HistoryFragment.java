@@ -3,6 +3,7 @@ package com.rifara.travelling.ui;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,42 +27,69 @@ import com.rifara.travelling.R;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HistoryFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HistoryFragment extends Fragment {
 
+    private RecyclerView recyclerView;
+    ArrayList<Item> itemArrayList;
+    FirebaseFirestore db;
+    ProgressDialog progressDialog;
+    private CardAdapter adapter;
+    private ArrayList<Item> itemList;
 
-    public HistoryFragment() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HistoryFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HistoryFragment newInstance(String param1, String param2) {
-        HistoryFragment fragment = new HistoryFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_history, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Fetching Data..");
+        progressDialog.show();
+
+        recyclerView = view.findViewById(R.id.recycle_View);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        db=FirebaseFirestore.getInstance();
+        itemArrayList = new ArrayList<Item>();
+        adapter=new CardAdapter(getActivity(),itemArrayList);
+        recyclerView.setAdapter(adapter);
+        EventChangeListener();
+
+    }
+
+    private void EventChangeListener() {
+        db.collection("Booking")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (error != null) {
+                            if (progressDialog.isShowing())
+                                progressDialog.dismiss();
+
+                            Log.e("Firebase Eror", error.getMessage());
+                            return;
+                        }
+                        for (DocumentChange dc : value.getDocumentChanges()) {
+                            if (dc.getType() == DocumentChange.Type.ADDED) {
+                                itemArrayList.add(dc.getDocument().toObject(Item.class));
+                            }
+                            adapter.notifyDataSetChanged();
+                            if (progressDialog.isShowing())
+                                progressDialog.dismiss();
+                        }
+
+                    }
+                });
+
+    }
+
+
 }

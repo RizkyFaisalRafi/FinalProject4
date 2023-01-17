@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new HomeFragment();
                     break;
                 case R.id.history:
-                    Intent intent = new Intent(MainActivity.this, History.class);
+                    fragment = new HistoryFragment();
                     break;
                 case R.id.profil:
                     fragment = new ProfileFragment();
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
     }
-    //pindah antar fragment
+    // pindah antar fragment
     private void LoadFragment(Fragment fragment){
         getSupportFragmentManager()
                 .beginTransaction()

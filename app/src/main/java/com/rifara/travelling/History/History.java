@@ -51,7 +51,7 @@ public class History extends AppCompatActivity {
     }
 
     private void EventChangeListener() {
-        ListenerRegistration listenerRegistration = db.collection("Booking")
+        db.collection("Booking")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
